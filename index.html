@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Act Pioneer – Matrix-Heatmap</title>
+<style>
+/* ---------------------------------------------------------------------------
+   SCHRIFT HASKÖY
+   Die drei Schriftdateien müssen im SELBEN Ordner liegen wie diese Datei:
+     Haskoy-Regular.woff2 · Haskoy-SemiBold.woff2 · Haskoy-Bold.woff2
+   Fehlen sie, greift automatisch Helvetica Neue.
+   --------------------------------------------------------------------------- */
+@font-face{font-family:"Haskoy";src:url("Haskoy-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Haskoy";src:url("Haskoy-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Haskoy";src:url("Haskoy-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --papier:#F0F0F2;
+  --karte:#FFFFFF;
+  --tinte:#1A1A1A;
+  --tinte-weich:#5E5E66;
+  --linie:#D8D8DC;
+  --linie-stark:#BEBEC4;
+  --dap:#6023F2;
+  --dap-weich:#EBE4FE;
+  --offen:#B0740F;
+  --offen-weich:#FBF2E0;
+
+  --s1:#EEE9FD;
+  --s2:#D5C6FA;
+  --s3:#B49AF6;
+  --s4:#8B5FF0;
+  --s5:#6023F2;
+  --s0:#E4E4E8;
+
+  --schrift:"Haskoy","Hasköy","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--papier);color:var(--tinte);
+  font-family:var(--schrift);font-size:15px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;padding-bottom:80px;
+}
+.seite{max-width:1500px;margin:0 auto;padding:38px 48px 0}
+
+h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-height:1.15}
+.projektzeile{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--dap);margin-bottom:12px;
+}
+.einleitung-lead{
+  font-size:19.5px;line-height:1.48;margin-top:18px;
+  letter-spacing:-.008em;max-width:74ch;
+}
+.einleitung-text{
+  font-size:15px;line-height:1.65;margin-top:14px;
+  color:var(--tinte-weich);max-width:86ch;
+}
+.kopf-linie{border:none;border-top:1px solid var(--linie);margin:26px 0 0}
+.arbeitsstand{font-size:12px;letter-spacing:.02em;color:var(--tinte-weich);margin-top:12px}
+
+/* ---------- Matrix ---------- */
+.ladefehler{margin-top:32px;padding:18px 22px;background:var(--karte);border-left:3px solid var(--offen)}
+.ladefehler-titel{font-size:15px;font-weight:700;margin-bottom:7px}
+.ladefehler-text{font-size:14px;line-height:1.6;color:var(--tinte-weich)}
+.ladefehler-detail{font-size:12px;color:var(--tinte-weich);margin-top:9px;font-family:"SF Mono",Menlo,Consolas,monospace}
+.ladefehler code{font-family:"SF Mono",Menlo,Consolas,monospace;background:#E4E4E8;padding:1px 5px;border-radius:2px;font-size:12.5px}
+
+.matrix-huelle{overflow-x:auto;margin-top:32px;padding-bottom:8px}
+.matrix{display:grid;min-width:1080px;gap:3px}
+
+.ecke{background:transparent}
+
+.spaltenkopf{
+  background:transparent;border:none;padding:0 4px 12px;
+  font-family:inherit;cursor:pointer;text-align:left;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:3px;
+  border-bottom:1.5px solid var(--tinte);
+}
+.spaltenkopf:hover .spaltenkopf-name{color:var(--dap)}
+.spaltenkopf:focus-visible{outline:2px solid var(--dap);outline-offset:2px}
+.spaltenkopf-name{font-size:13px;font-weight:700;line-height:1.25;transition:color .12s ease}
+.spaltenkopf-mehr{font-size:10.5px;color:var(--tinte-weich)}
+
+.kategoriezeile{
+  grid-column:1/-1;
+  padding:22px 0 7px;
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dap);
+}
+.kategoriezeile:first-of-type{padding-top:14px}
+
+.zeilenkopf{
+  background:transparent;border:none;border-top:1px solid var(--linie);
+  padding:14px 20px 14px 0;font-family:inherit;cursor:pointer;text-align:left;
+  display:flex;flex-direction:column;justify-content:center;gap:3px;
+}
+.zeilenkopf:hover .zeilenkopf-titel{color:var(--dap)}
+.zeilenkopf:focus-visible{outline:2px solid var(--dap);outline-offset:-2px}
+.zeilenkopf-titel{font-size:14.5px;font-weight:600;line-height:1.3;transition:color .12s ease}
+.zeilenkopf-normen{font-size:11px;color:var(--tinte-weich)}
+.zeilenkopf-marke{
+  display:inline-block;margin-top:3px;width:fit-content;
+  font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+  color:var(--offen);background:var(--offen-weich);padding:2px 6px;border-radius:2px;
+}
+
+.zelle{
+  border:none;border-top:1px solid var(--linie);background:transparent;
+  padding:0;font-family:inherit;cursor:pointer;position:relative;
+  min-height:76px;width:100%;display:block;
+}
+.zelle-flaeche{
+  position:absolute;inset:6px 3px;border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .12s ease,box-shadow .12s ease;
+}
+.zelle:hover .zelle-flaeche{transform:scale(1.05);box-shadow:0 2px 12px rgba(26,26,26,.18)}
+.zelle:focus-visible{outline:none}
+.zelle:focus-visible .zelle-flaeche,
+.zelle.ist-aktiv .zelle-flaeche{box-shadow:0 0 0 2px var(--papier),0 0 0 4px var(--dap)}
+.zelle-wert{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.zelle-spanne{font-size:15px}
+.zelle-leer{font-size:16px;color:#A4A4AC;font-weight:400}
+.zelle[disabled]{cursor:default}
+.zelle[disabled]:hover .zelle-flaeche{transform:none;box-shadow:none}
+
+.konfidenz-marke{position:absolute;top:11px;right:9px;width:7px;height:7px;border-radius:50%}
+
+.st-1{background:var(--s1);color:var(--tinte)}
+.st-2{background:var(--s2);color:var(--tinte)}
+.st-3{background:var(--s3);color:#fff}
+.st-4{background:var(--s4);color:#fff}
+.st-5{background:var(--s5);color:#fff}
+.st-0{background:var(--s0)}
+
+/* ---------- Legende ---------- */
+.legende{
+  margin-top:34px;padding-top:22px;border-top:1px solid var(--linie);
+  display:flex;gap:52px;flex-wrap:wrap;
+}
+.legende-block{display:flex;flex-direction:column;gap:10px}
+.legende-titel{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--tinte-weich)}
+.skala{display:flex;align-items:center;gap:2px}
+.skala-feld{width:38px;height:26px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;border-radius:2px}
+.skala-text{font-size:12px;color:var(--tinte-weich);margin-left:12px;max-width:46ch}
+.konf-liste{display:flex;gap:20px;flex-wrap:wrap}
+.konf-eintrag{display:flex;align-items:center;gap:7px;font-size:12.5px}
+.konf-punkt{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+.abschluss{
+  margin-top:44px;padding-top:22px;
+  border-top:1px solid var(--linie);
+  max-width:86ch;
+}
+.abschluss-text{
+  font-size:13.5px;line-height:1.68;color:var(--tinte-weich);
+}
+.abschluss-text + .abschluss-text{margin-top:11px}
+
+.fuss{margin-top:30px;padding-top:16px;border-top:1px solid var(--linie);font-size:12px;color:var(--tinte-weich);line-height:1.55}
+.fuss code{font-family:"SF Mono",Menlo,Consolas,monospace;background:#E4E4E8;padding:1px 5px;border-radius:2px;font-size:11px}
+
+/* ---------- Tafel ---------- */
+.schleier{position:fixed;inset:0;background:rgba(26,26,26,.32);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:15}
+.schleier.ist-offen{opacity:1;pointer-events:auto}
+.tafel{
+  position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);
+  background:var(--papier);box-shadow:-8px 0 34px rgba(26,26,26,.14);
+  transform:translateX(100%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;z-index:20;
+}
+.tafel.ist-offen{transform:translateX(0)}
+.tafel-kopf{
+  position:sticky;top:0;background:var(--papier);
+  border-bottom:1.5px solid var(--tinte);padding:24px 30px 15px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.tafel-kopf-text{flex:1;min-width:0}
+.tafel-marke{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--dap);display:block;margin-bottom:6px}
+.tafel-titel{font-size:21px;font-weight:700;line-height:1.26;letter-spacing:-.014em}
+.schliessen{
+  border:1px solid var(--linie-stark);background:transparent;width:30px;height:30px;
+  border-radius:2px;cursor:pointer;font-size:17px;line-height:1;color:var(--tinte-weich);
+  flex-shrink:0;font-family:inherit;
+}
+.schliessen:hover{background:#E4E4E8;color:var(--tinte)}
+.schliessen:focus-visible{outline:2px solid var(--dap);outline-offset:1px}
+
+.tafel-koerper{padding:24px 30px 70px}
+.abschnitt{margin-bottom:24px}
+.abschnitt:last-child{margin-bottom:0}
+.abschnitt-marke{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--tinte-weich);margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--linie);
+}
+.abschnitt-text{font-size:14.5px;line-height:1.62}
+.abschnitt-text + .abschnitt-text{margin-top:10px}
+.unterabschnitt{margin-bottom:16px}
+.unterabschnitt-titel{font-size:14px;font-weight:700;margin-bottom:5px}
+.normen-zeile{font-size:13.5px;font-weight:700;color:var(--dap)}
+.frage-zitat{font-size:14.5px;line-height:1.55;padding-left:14px;border-left:2px solid var(--dap)}
+
+.score-kachel{display:flex;border:1px solid var(--linie);border-radius:2px;overflow:hidden;margin-bottom:22px}
+.score-zahl{width:78px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:15px 0}
+.score-gross{font-size:31px;font-weight:600;line-height:1}
+.score-gross-spanne{font-size:22px}
+.score-klein{font-size:10.5px;opacity:.74}
+.score-info{padding:13px 16px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.score-kriterium{font-size:14.5px;font-weight:700;line-height:1.3}
+.score-konfidenz{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:6px;color:var(--tinte-weich);font-weight:700}
+
+.anker-liste{display:flex;flex-direction:column;gap:6px}
+.anker-zeile{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.5}
+.anker-wert{
+  width:22px;height:22px;border-radius:2px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;margin-top:1px;
+}
+.lit-liste{display:flex;flex-direction:column;gap:7px;font-size:13px;line-height:1.5;color:var(--tinte-weich)}
+.empf-liste{list-style:none;display:flex;flex-direction:column;gap:9px}
+.empf-liste li{
+  font-size:14px;line-height:1.55;padding-left:17px;position:relative;
+}
+.norm-zitat{
+  margin:12px 0;padding:12px 16px;
+  background:var(--karte);border-left:3px solid var(--dap);
+  font-size:14px;line-height:1.6;font-style:italic;
+}
+.pruefpunkte{display:flex;flex-direction:column;gap:14px;margin:14px 0}
+.pruefpunkt{padding-left:15px;border-left:2px solid var(--linie)}
+.pruefpunkt-kopf{display:flex;gap:8px;align-items:baseline;margin-bottom:5px}
+.pruefpunkt-marke{font-size:13px;font-weight:700;color:var(--dap);flex-shrink:0}
+.pruefpunkt-merkmal{font-size:13.5px;font-style:italic;line-height:1.45}
+.beispiel{
+  margin-top:14px;padding:13px 16px;
+  background:var(--karte);border-left:3px solid var(--linie-stark);
+}
+.beispiel-marke{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;
+  color:var(--tinte-weich);display:block;margin-bottom:6px;
+}
+.beispiel .abschnitt-text + .abschnitt-text{margin-top:8px}
+.unterabschnitt{margin-bottom:22px}
+.empf-liste li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:6px;height:6px;border-radius:50%;background:var(--dap);
+}
+
+.leer-hinweis{font-size:13.5px;color:var(--tinte-weich);padding:11px 15px;background:var(--karte);border-radius:2px;line-height:1.55}
+.warnbox{background:var(--offen-weich);border-left:3px solid var(--offen);padding:13px 16px;font-size:13.5px;line-height:1.58}
+.warnbox-marke{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--offen);font-weight:700;display:block;margin-bottom:4px}
+
+@media (max-width:900px){
+  .seite{padding-left:20px;padding-right:20px}
+  h1{font-size:24px}
+  .tafel{width:100%}
+  .legende{gap:28px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="seite">
+  <p class="projektzeile">Data Act Pioneer · Interreg Alpenrhein-Bodensee-Hochrhein</p>
+  <h1>Rechtsfragen des Data Act – Matrix-Heatmap</h1>
+  <p class="einleitung-lead">Stellen Sie sich vor, Sie könnten für Ihr Unternehmen auf einen Blick sehen, welche Rechtsfragen des Data Act besonders umstritten, unsicher oder risikoreich sind.</p>
+  <p class="einleitung-text">Diese Heat Map macht genau das möglich: Sie ordnet die zentralen Rechtsfragen des Data Act sechs wissenschaftlich hergeleiteten Kriterien zu und macht damit sichtbar, wo Klärungsbedarf, Risiko oder Forschungslücken bestehen und wie hoch der Implementierungsaufwand für Dateninhaber ausfällt. Klicken Sie sich durch Themen, Kriterien und Einzelbewertungen, um von der groben Orientierung bis zur Detailanalyse mit Handlungsempfehlung zu gelangen.</p>
+  <hr class="kopf-linie">
+  <p class="arbeitsstand" id="arbeitsstand"></p>
+
+  <div id="ladefehler" class="ladefehler" hidden>
+    <p class="ladefehler-titel">Die Matrix konnte nicht geladen werden.</p>
+    <p class="ladefehler-text">Vermutlich fehlt die Datei <code>daten.js</code> oder sie liegt nicht im selben Ordner wie <code>index.html</code>. Bitte prüfen, ob beide Dateien nebeneinander liegen und der Ordner vollständig entpackt wurde.</p>
+    <p class="ladefehler-detail" id="ladefehler-detail"></p>
+  </div>
+
+  <div class="matrix-huelle">
+    <div class="matrix" id="matrix"></div>
+  </div>
+
+  <section class="legende">
+    <div class="legende-block">
+      <span class="legende-titel">Skala</span>
+      <div class="skala" id="skala"></div>
+      <span class="skala-text">Ordinal, 1–5. Einheitlich sequenziell eingefärbt – ein hoher Wert bedeutet je nach Kriterium etwas anderes, nicht durchgehend „kritisch“.</span>
+    </div>
+    <div class="legende-block">
+      <span class="legende-titel">Konfidenz</span>
+      <div class="konf-liste" id="konfidenz-legende"></div>
+    </div>
+  </section>
+
+  <section class="abschluss">
+    <p class="abschluss-text" id="abschluss"></p>
+    <p class="abschluss-text" id="disclaimer"></p>
+  </section>
+
+  <footer class="fuss">
+    <p>Inhalte bearbeiten in <code>daten.js</code> — neue Rechtsfrage als Block in <code>FRAGEN</code>, neues Kriterium als Block in <code>KRITERIEN</code>. Die Matrix passt sich automatisch an.</p>
+  </footer>
+</div>
+
+<div class="schleier" id="schleier"></div>
+
+<aside class="tafel" id="tafel" role="dialog" aria-labelledby="tafel-titel" tabindex="-1">
+  <div class="tafel-kopf">
+    <div class="tafel-kopf-text">
+      <span class="tafel-marke" id="tafel-marke"></span>
+      <h2 class="tafel-titel" id="tafel-titel"></h2>
+    </div>
+    <button class="schliessen" id="schliessen" aria-label="Detailansicht schließen">×</button>
+  </div>
+  <div class="tafel-koerper" id="tafel-koerper"></div>
+</aside>
+
+<script src="daten.js"></script>
+<script>
+const KONFIDENZ = {
+  belegt:     { text:'belegt',     farbe:'#6023F2', rand:'#6023F2' },
+  vorlaeufig: { text:'vorläufig',  farbe:'transparent', rand:'#B0740F' },
+  offen:      { text:'offen',      farbe:'transparent', rand:'#BEBEC4' }
+};
+
+const matrix   = document.getElementById('matrix');
+const tafel    = document.getElementById('tafel');
+const schleier = document.getElementById('schleier');
+let aktiv = null;
+
+function setzeText(id, wert){
+  const el = document.getElementById(id);
+  if(el && typeof wert === 'string') el.textContent = wert;
+}
+
+document.getElementById('arbeitsstand').textContent =
+  'Arbeitsstand ' + new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+setzeText('abschluss',  typeof ABSCHLUSSHINWEIS !== 'undefined' ? ABSCHLUSSHINWEIS : '');
+setzeText('disclaimer', typeof DISCLAIMER       !== 'undefined' ? DISCLAIMER       : '');
+
+const konfPunkt = stufe=>{
+  const k = KONFIDENZ[stufe] || KONFIDENZ.offen;
+  return `<span class="konf-punkt" style="background:${k.farbe};box-shadow:inset 0 0 0 1.5px ${k.rand}"></span>`;
+};
+
+/* ---------- Matrix ---------- */
+function matrixBauen(){
+  matrix.style.gridTemplateColumns = `minmax(300px,1.5fr) repeat(${KRITERIEN.length},minmax(96px,1fr))`;
+
+  let html = '<div class="ecke"></div>';
+  KRITERIEN.forEach(k=>{
+    html += `<button class="spaltenkopf" data-art="kriterium" data-id="${k.id}"
+               aria-label="Kriterium ${k.name} – Definition und Methodik anzeigen">
+               <span class="spaltenkopf-name">${k.kurz}</span>
+               <span class="spaltenkopf-mehr">Methodik ansehen</span>
+             </button>`;
+  });
+
+  KATEGORIEN.forEach(kat=>{
+    html += `<div class="kategoriezeile">${kat.name}</div>`;
+    FRAGEN.filter(f=>f.kategorie===kat.id).forEach(f=>{
+      const bewertet  = Object.keys(f.bewertungen).length > 0;
+      const hatInhalt = f.einleitung || (f.abschnitte && f.abschnitte.length);
+      const fehltFazit = hatInhalt && (!f.fazit || !(f.empfehlungen && f.empfehlungen.length));
+
+      let marke = '';
+      if(!bewertet && !hatInhalt) marke = '<span class="zeilenkopf-marke">noch nicht bearbeitet</span>';
+      else if(fehltFazit)         marke = '<span class="zeilenkopf-marke">Fazit / Empfehlung fehlt</span>';
+
+      html += `<button class="zeilenkopf" data-art="frage" data-id="${f.id}"
+                 aria-label="Rechtsfrage ${f.kurztitel} – Ausarbeitung anzeigen">
+                 <span class="zeilenkopf-titel">${f.kurztitel}</span>
+                 ${f.normen ? `<span class="zeilenkopf-normen">${f.normen}</span>` : ''}
+                 ${marke}
+               </button>`;
+
+      KRITERIEN.forEach(k=>{
+        const b = f.bewertungen[k.id];
+        if(!b){
+          html += `<button class="zelle" disabled aria-label="${f.kurztitel}, ${k.kurz}: noch nicht bewertet">
+                     <span class="zelle-flaeche st-0"><span class="zelle-leer">–</span></span>
+                   </button>`;
+          return;
+        }
+        const kf = KONFIDENZ[b.konfidenz] || KONFIDENZ.offen;
+        const anzeige = b.spanne ? b.spanne.replace(' oder ','\u2013').replace(' bis ','\u2013') : b.score;
+        const klasse  = b.spanne ? 'zelle-wert zelle-spanne' : 'zelle-wert';
+        html += `<button class="zelle" data-art="zelle" data-frage="${f.id}" data-kriterium="${k.id}"
+                   aria-label="${f.kurztitel}, ${k.kurz}, ${b.spanne ? 'Spanne '+b.spanne : 'Wert '+b.score+' von 5'}, ${kf.text}">
+                   <span class="zelle-flaeche st-${b.score}"><span class="${klasse}">${anzeige}</span></span>
+                   <span class="konfidenz-marke" style="background:${kf.farbe};box-shadow:inset 0 0 0 1.5px ${kf.rand}"></span>
+                 </button>`;
+      });
+    });
+  });
+
+  matrix.innerHTML = html;
+  matrix.querySelectorAll('[data-art]').forEach(el=>{
+    el.addEventListener('click',()=>oeffnen(el));
+  });
+}
+
+function legendeBauen(){
+  document.getElementById('skala').innerHTML =
+    [1,2,3,4,5].map(n=>`<span class="skala-feld st-${n}">${n}</span>`).join('');
+  document.getElementById('konfidenz-legende').innerHTML =
+    Object.entries(KONFIDENZ).map(([id,k])=>
+      `<span class="konf-eintrag">${konfPunkt(id)}${k.text}</span>`).join('');
+}
+
+/* ---------- Tafel ---------- */
+function oeffnen(el){
+  if(aktiv) aktiv.classList.remove('ist-aktiv');
+  el.classList.add('ist-aktiv');
+  aktiv = el;
+
+  const art = el.dataset.art;
+  if(art==='kriterium') kriteriumTafel(el.dataset.id);
+  if(art==='frage')     frageTafel(el.dataset.id);
+  if(art==='zelle')     zelleTafel(el.dataset.frage, el.dataset.kriterium);
+
+  document.getElementById('tafel-koerper').scrollTop = 0;
+  tafel.classList.add('ist-offen');
+  schleier.classList.add('ist-offen');
+}
+
+function kriteriumTafel(id){
+  const k = KRITERIEN.find(x=>x.id===id);
+  setKopf('Bewertungskriterium', k.name);
+
+  let h = abschnitt('Definition', `<p class="abschnitt-text">${k.definition}</p>`);
+  h += abschnitt('Erhebung', `<p class="abschnitt-text">${k.methodik}</p>`);
+  if(k.normierung) h += abschnitt('Normierung', `<p class="abschnitt-text">${k.normierung}</p>`);
+  if(k.anker.length){
+    h += abschnitt('Verankerte Skala',
+      `<div class="anker-liste">${k.anker.map(a=>
+        `<div class="anker-zeile"><span class="anker-wert st-${a.wert}">${a.wert}</span><span>${a.text}</span></div>`
+      ).join('')}</div>`);
+  }
+  setKoerper(h);
+}
+
+function frageTafel(id){
+  const f = FRAGEN.find(x=>x.id===id);
+  const kat = KATEGORIEN.find(k=>k.id===f.kategorie);
+  setKopf(kat.name, f.kurztitel);
+
+  let h = abschnitt('Rechtsfrage',
+    `<p class="frage-zitat">${f.frage}</p>` +
+    (f.normen ? `<p class="normen-zeile" style="margin-top:10px">${f.normen}</p>` : ''));
+
+  const hatInhalt = (f.einleitung && f.einleitung.length) || (f.abschnitte && f.abschnitte.length);
+
+  if(!hatInhalt){
+    h += abschnitt('Ausarbeitung',
+      `<p class="leer-hinweis">Die Ausarbeitung zu dieser Rechtsfrage steht noch aus – einschließlich Fazit und Handlungsempfehlung.</p>`);
+    setKoerper(h);
+    return;
+  }
+
+  if(f.einleitung && f.einleitung.length){
+    h += abschnitt('Einordnung', absaetze(f.einleitung));
+  }
+
+  if(f.abschnitte && f.abschnitte.length){
+    h += `<div class="abschnitt"><div class="abschnitt-marke">Inhaltliche Darstellung</div>` +
+         f.abschnitte.map(a=>{
+           let t = `<div class="unterabschnitt"><div class="unterabschnitt-titel">${a.titel}</div>`;
+           if(a.absaetze)        t += absaetze(a.absaetze);
+           if(a.zitat)           t += `<blockquote class="norm-zitat">${a.zitat}</blockquote>`;
+           if(a.nachAbsaetze)    t += absaetze(a.nachAbsaetze);
+           if(a.punkte){
+             t += `<div class="pruefpunkte">` + a.punkte.map(p=>
+               `<div class="pruefpunkt">
+                  <div class="pruefpunkt-kopf">
+                    <span class="pruefpunkt-marke">${p.marke}</span>
+                    <span class="pruefpunkt-merkmal">${p.merkmal}</span>
+                  </div>
+                  <p class="abschnitt-text">${p.text}</p>
+                </div>`).join('') + `</div>`;
+           }
+           if(a.schlussAbsaetze) t += absaetze(a.schlussAbsaetze);
+           if(a.beispiel){
+             t += `<div class="beispiel">
+                     <span class="beispiel-marke">Beispiel</span>
+                     <p class="abschnitt-text">${a.beispiel.fall}</p>
+                     <p class="abschnitt-text">${a.beispiel.loesung}</p>
+                   </div>`;
+           }
+           return t + `</div>`;
+         }).join('') + `</div>`;
+  }
+
+  /* Fazit und Handlungsempfehlung gehören zu jeder ausgearbeiteten Frage.
+     Fehlen sie, wird die Lücke ausgewiesen statt stillschweigend übergangen. */
+  h += abschnitt('Fazit', f.fazit
+    ? `<p class="abschnitt-text">${f.fazit}</p>`
+    : `<p class="leer-hinweis">Fazit steht noch aus.</p>`);
+
+  h += abschnitt('Handlungsempfehlung', (f.empfehlungen && f.empfehlungen.length)
+    ? `<ul class="empf-liste">${f.empfehlungen.map(e=>`<li>${e}</li>`).join('')}</ul>`
+    : `<p class="leer-hinweis">Handlungsempfehlung steht noch aus.</p>`);
+
+  if(f.literatur && f.literatur.length){
+    h += abschnitt('Zu empfehlende Literatur',
+      `<div class="lit-liste">${f.literatur.map(l=>`<span>${l}</span>`).join('')}</div>`);
+  }
+
+  setKoerper(h);
+}
+
+function absaetze(arr){
+  return arr.map(t=>`<p class="abschnitt-text">${t}</p>`).join('');
+}
+
+function zelleTafel(fid, kid){
+  const f = FRAGEN.find(x=>x.id===fid);
+  const k = KRITERIEN.find(x=>x.id===kid);
+  const b = f.bewertungen[kid];
+  const kf = KONFIDENZ[b.konfidenz] || KONFIDENZ.offen;
+
+  setKopf(f.kurztitel, k.name);
+
+  const anzeige = b.spanne ? b.spanne.replace(' oder ','\u2013').replace(' bis ','\u2013') : b.score;
+  let h = `<div class="score-kachel">
+    <div class="score-zahl st-${b.score}">
+      <span class="score-gross${b.spanne ? ' score-gross-spanne' : ''}">${anzeige}</span>
+      <span class="score-klein">${b.spanne ? 'Spanne' : 'von 5'}</span>
+    </div>
+    <div class="score-info">
+      <span class="score-kriterium">${k.kurz}</span>
+      <span class="score-konfidenz">${konfPunkt(b.konfidenz)}${kf.text}</span>
+    </div>
+  </div>`;
+
+  h += abschnitt('Auswertung', `<p class="abschnitt-text">${b.text}</p>`);
+
+  if(b.anmerkung){
+    h += `<div class="abschnitt"><div class="warnbox">
+            <span class="warnbox-marke">Anmerkung</span>${b.anmerkung}
+          </div></div>`;
+  }
+
+  h += abschnitt('Wie dieser Wert entsteht',
+    `<p class="abschnitt-text">${k.methodik}</p>` +
+    (k.normierung ? `<p class="abschnitt-text">${k.normierung}</p>` : ''));
+
+  setKoerper(h);
+}
+
+function setKopf(marke, titel){
+  document.getElementById('tafel-marke').textContent = marke;
+  document.getElementById('tafel-titel').textContent = titel;
+}
+function setKoerper(h){ document.getElementById('tafel-koerper').innerHTML = h; }
+function abschnitt(marke, inhalt){
+  return `<div class="abschnitt"><div class="abschnitt-marke">${marke}</div>${inhalt}</div>`;
+}
+
+function schliessen(){
+  tafel.classList.remove('ist-offen');
+  schleier.classList.remove('ist-offen');
+  if(aktiv){ aktiv.classList.remove('ist-aktiv'); aktiv.focus(); aktiv=null; }
+}
+document.getElementById('schliessen').addEventListener('click', schliessen);
+schleier.addEventListener('click', schliessen);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') schliessen(); });
+
+function starten(){
+  if(typeof KRITERIEN === 'undefined' || typeof KATEGORIEN === 'undefined' || typeof FRAGEN === 'undefined'){
+    zeigeLadefehler('Die Datei daten.js wurde nicht gefunden oder ist unvollständig.');
+    return;
+  }
+  try{
+    matrixBauen();
+    legendeBauen();
+  }catch(e){
+    zeigeLadefehler(String(e && e.message ? e.message : e));
+  }
+}
+
+function zeigeLadefehler(detail){
+  const box = document.getElementById('ladefehler');
+  if(box){
+    box.hidden = false;
+    const d = document.getElementById('ladefehler-detail');
+    if(d && detail) d.textContent = 'Technischer Hinweis: ' + detail;
+  }
+  const m = document.querySelector('.matrix-huelle');
+  if(m) m.hidden = true;
+  const l = document.querySelector('.legende');
+  if(l) l.hidden = true;
+}
+
+starten();
+</script>
+</body>
+</html>
