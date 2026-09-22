@@ -61,6 +61,12 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
 .arbeitsstand{font-size:12px;letter-spacing:.02em;color:var(--tinte-weich);margin-top:12px}
 
 /* ---------- Matrix ---------- */
+.ladefehler{margin-top:32px;padding:18px 22px;background:var(--karte);border-left:3px solid var(--offen)}
+.ladefehler-titel{font-size:15px;font-weight:700;margin-bottom:7px}
+.ladefehler-text{font-size:14px;line-height:1.6;color:var(--tinte-weich)}
+.ladefehler-detail{font-size:12px;color:var(--tinte-weich);margin-top:9px;font-family:"SF Mono",Menlo,Consolas,monospace}
+.ladefehler code{font-family:"SF Mono",Menlo,Consolas,monospace;background:#E4E4E8;padding:1px 5px;border-radius:2px;font-size:12.5px}
+
 .matrix-huelle{overflow-x:auto;margin-top:32px;padding-bottom:8px}
 .matrix{display:grid;min-width:1080px;gap:3px}
 
@@ -265,6 +271,12 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
   <hr class="kopf-linie">
   <p class="arbeitsstand" id="arbeitsstand"></p>
 
+  <div id="ladefehler" class="ladefehler" hidden>
+    <p class="ladefehler-titel">Die Matrix konnte nicht geladen werden.</p>
+    <p class="ladefehler-text">Vermutlich fehlt die Datei <code>daten.js</code> oder sie liegt nicht im selben Ordner wie <code>index.html</code>. Bitte prüfen, ob beide Dateien nebeneinander liegen und der Ordner vollständig entpackt wurde.</p>
+    <p class="ladefehler-detail" id="ladefehler-detail"></p>
+  </div>
+
   <div class="matrix-huelle">
     <div class="matrix" id="matrix"></div>
   </div>
@@ -317,10 +329,15 @@ const tafel    = document.getElementById('tafel');
 const schleier = document.getElementById('schleier');
 let aktiv = null;
 
+function setzeText(id, wert){
+  const el = document.getElementById(id);
+  if(el && typeof wert === 'string') el.textContent = wert;
+}
+
 document.getElementById('arbeitsstand').textContent =
   'Arbeitsstand ' + new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
-document.getElementById('abschluss').textContent = ABSCHLUSSHINWEIS;
-document.getElementById('disclaimer').textContent = DISCLAIMER;
+setzeText('abschluss',  typeof ABSCHLUSSHINWEIS !== 'undefined' ? ABSCHLUSSHINWEIS : '');
+setzeText('disclaimer', typeof DISCLAIMER       !== 'undefined' ? DISCLAIMER       : '');
 
 const konfPunkt = stufe=>{
   const k = KONFIDENZ[stufe] || KONFIDENZ.offen;
@@ -550,8 +567,33 @@ document.getElementById('schliessen').addEventListener('click', schliessen);
 schleier.addEventListener('click', schliessen);
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') schliessen(); });
 
-matrixBauen();
-legendeBauen();
+function starten(){
+  if(typeof KRITERIEN === 'undefined' || typeof KATEGORIEN === 'undefined' || typeof FRAGEN === 'undefined'){
+    zeigeLadefehler('Die Datei daten.js wurde nicht gefunden oder ist unvollständig.');
+    return;
+  }
+  try{
+    matrixBauen();
+    legendeBauen();
+  }catch(e){
+    zeigeLadefehler(String(e && e.message ? e.message : e));
+  }
+}
+
+function zeigeLadefehler(detail){
+  const box = document.getElementById('ladefehler');
+  if(box){
+    box.hidden = false;
+    const d = document.getElementById('ladefehler-detail');
+    if(d && detail) d.textContent = 'Technischer Hinweis: ' + detail;
+  }
+  const m = document.querySelector('.matrix-huelle');
+  if(m) m.hidden = true;
+  const l = document.querySelector('.legende');
+  if(l) l.hidden = true;
+}
+
+starten();
 </script>
 </body>
 </html>
