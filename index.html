@@ -287,10 +287,6 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
       <div class="skala" id="skala"></div>
       <span class="skala-text">Ordinal, 1–5. Einheitlich sequenziell eingefärbt – ein hoher Wert bedeutet je nach Kriterium etwas anderes, nicht durchgehend „kritisch“.</span>
     </div>
-    <div class="legende-block">
-      <span class="legende-titel">Konfidenz</span>
-      <div class="konf-liste" id="konfidenz-legende"></div>
-    </div>
   </section>
 
   <section class="abschluss">
@@ -318,12 +314,6 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
 
 <script src="daten.js"></script>
 <script>
-const KONFIDENZ = {
-  belegt:     { text:'belegt',     farbe:'#6023F2', rand:'#6023F2' },
-  vorlaeufig: { text:'vorläufig',  farbe:'transparent', rand:'#B0740F' },
-  offen:      { text:'offen',      farbe:'transparent', rand:'#BEBEC4' }
-};
-
 const matrix   = document.getElementById('matrix');
 const tafel    = document.getElementById('tafel');
 const schleier = document.getElementById('schleier');
@@ -338,11 +328,6 @@ document.getElementById('arbeitsstand').textContent =
   'Arbeitsstand ' + new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
 setzeText('abschluss',  typeof ABSCHLUSSHINWEIS !== 'undefined' ? ABSCHLUSSHINWEIS : '');
 setzeText('disclaimer', typeof DISCLAIMER       !== 'undefined' ? DISCLAIMER       : '');
-
-const konfPunkt = stufe=>{
-  const k = KONFIDENZ[stufe] || KONFIDENZ.offen;
-  return `<span class="konf-punkt" style="background:${k.farbe};box-shadow:inset 0 0 0 1.5px ${k.rand}"></span>`;
-};
 
 /* ---------- Matrix ---------- */
 function matrixBauen(){
@@ -360,19 +345,10 @@ function matrixBauen(){
   KATEGORIEN.forEach(kat=>{
     html += `<div class="kategoriezeile">${kat.name}</div>`;
     FRAGEN.filter(f=>f.kategorie===kat.id).forEach(f=>{
-      const bewertet  = Object.keys(f.bewertungen).length > 0;
-      const hatInhalt = f.einleitung || (f.abschnitte && f.abschnitte.length);
-      const fehltFazit = hatInhalt && (!f.fazit || !(f.empfehlungen && f.empfehlungen.length));
-
-      let marke = '';
-      if(!bewertet && !hatInhalt) marke = '<span class="zeilenkopf-marke">noch nicht bearbeitet</span>';
-      else if(fehltFazit)         marke = '<span class="zeilenkopf-marke">Fazit / Empfehlung fehlt</span>';
-
       html += `<button class="zeilenkopf" data-art="frage" data-id="${f.id}"
                  aria-label="Rechtsfrage ${f.kurztitel} – Ausarbeitung anzeigen">
                  <span class="zeilenkopf-titel">${f.kurztitel}</span>
                  ${f.normen ? `<span class="zeilenkopf-normen">${f.normen}</span>` : ''}
-                 ${marke}
                </button>`;
 
       KRITERIEN.forEach(k=>{
@@ -383,13 +359,11 @@ function matrixBauen(){
                    </button>`;
           return;
         }
-        const kf = KONFIDENZ[b.konfidenz] || KONFIDENZ.offen;
         const anzeige = b.spanne ? b.spanne.replace(' oder ','\u2013').replace(' bis ','\u2013') : b.score;
         const klasse  = b.spanne ? 'zelle-wert zelle-spanne' : 'zelle-wert';
         html += `<button class="zelle" data-art="zelle" data-frage="${f.id}" data-kriterium="${k.id}"
-                   aria-label="${f.kurztitel}, ${k.kurz}, ${b.spanne ? 'Spanne '+b.spanne : 'Wert '+b.score+' von 5'}, ${kf.text}">
+                   aria-label="${f.kurztitel}, ${k.kurz}, ${b.spanne ? 'Spanne '+b.spanne : 'Wert '+b.score+' von 5'}">
                    <span class="zelle-flaeche st-${b.score}"><span class="${klasse}">${anzeige}</span></span>
-                   <span class="konfidenz-marke" style="background:${kf.farbe};box-shadow:inset 0 0 0 1.5px ${kf.rand}"></span>
                  </button>`;
       });
     });
@@ -404,9 +378,6 @@ function matrixBauen(){
 function legendeBauen(){
   document.getElementById('skala').innerHTML =
     [1,2,3,4,5].map(n=>`<span class="skala-feld st-${n}">${n}</span>`).join('');
-  document.getElementById('konfidenz-legende').innerHTML =
-    Object.entries(KONFIDENZ).map(([id,k])=>
-      `<span class="konf-eintrag">${konfPunkt(id)}${k.text}</span>`).join('');
 }
 
 /* ---------- Tafel ---------- */
@@ -518,7 +489,6 @@ function zelleTafel(fid, kid){
   const f = FRAGEN.find(x=>x.id===fid);
   const k = KRITERIEN.find(x=>x.id===kid);
   const b = f.bewertungen[kid];
-  const kf = KONFIDENZ[b.konfidenz] || KONFIDENZ.offen;
 
   setKopf(f.kurztitel, k.name);
 
@@ -530,17 +500,10 @@ function zelleTafel(fid, kid){
     </div>
     <div class="score-info">
       <span class="score-kriterium">${k.kurz}</span>
-      <span class="score-konfidenz">${konfPunkt(b.konfidenz)}${kf.text}</span>
     </div>
   </div>`;
 
   h += abschnitt('Auswertung', `<p class="abschnitt-text">${b.text}</p>`);
-
-  if(b.anmerkung){
-    h += `<div class="abschnitt"><div class="warnbox">
-            <span class="warnbox-marke">Anmerkung</span>${b.anmerkung}
-          </div></div>`;
-  }
 
   h += abschnitt('Wie dieser Wert entsteht',
     `<p class="abschnitt-text">${k.methodik}</p>` +

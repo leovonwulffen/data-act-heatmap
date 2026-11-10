@@ -159,6 +159,18 @@ const FRAGEN = [
       }
     ],
 
+    fazit: "Die Einordnung als vernetztes Produkt richtet sich nach den vier kumulativen Merkmalen des Art. 2 Nr. 5 DA. In den klaren Fällen, etwa dem Mähroboter, lässt sie sich damit zuverlässig vornehmen. Schwieriger wird es an den Rändern, denn die Definition verweist über den Begriff der Produktdaten auf das vernetzte Produkt zurück, und die Abgrenzung zu virtuellen Assistenten ist nicht trennscharf möglich. Räumlich erfasst das Marktortprinzip nach Art. 1 DA auch Anbieter außerhalb der Union, sofern ihr Angebot auf den EU-Markt ausgerichtet ist. Ungeklärt bleibt dabei, ob die Marktortregelung als verordnungsautonome Kollisionsnorm wirkt oder durch eine Rechtswahl verdrängt werden kann, und wessen Handeln für das Inverkehrbringen in der Union maßgeblich ist.",
+
+    empfehlungen: [
+      "Produktportfolio systematisch durchgehen: Jede Produktlinie anhand der vier Merkmale des Art. 2 Nr. 5 DA prüfen und das Ergebnis mit Begründung festhalten.",
+      "Prüfschritt in bestehende Prozesse einbauen: Die Einordnung gehört in die Produktfreigabe, weil jede neue Produktlinie und jede funktionale Erweiterung eine erneute Prüfung auslöst.",
+      "Bei Zweifeln von Anwendbarkeit ausgehen: Eine Fehleinordnung führt nicht zu einem Einzelverstoß, sondern zur gleichzeitigen Nichterfüllung sämtlicher Pflichten aus Kapitel II.",
+      "Unklare Abgrenzungen dokumentieren: Wo die Grenze zu virtuellen Assistenten oder die Reichweite des Produktbegriffs offen bleibt, die eigene Einordnung samt Erwägungen schriftlich festhalten.",
+      "Sitz ist nicht entscheidend: Auch Anbieter aus Drittstaaten, etwa aus der Schweiz, fallen in den Anwendungsbereich, wenn ihr Angebot auf den EU-Markt ausgerichtet ist.",
+      "Rechtswahl nicht als Ausweg einplanen: Ob eine Wahl außereuropäischen Rechts die Geltung des Data Act verdrängen kann, ist umstritten und sollte nicht als tragfähige Gestaltung behandelt werden.",
+      "Entwicklung beobachten: Zur Rechtsnatur der Marktortregelung und zur Frage, wessen Inverkehrbringen maßgeblich ist, stehen Klärungen durch Literatur und Rechtsprechung aus."
+    ],
+
     literatur: [
       "Weinhold, Robert / Schröder, Christian: Data Act – (R)Evolution oder vergebene Chance? Mehr Wettbewerb in Bezug auf und besserer Zugang zu Daten, ZD 2024, 306–311.",
       "Pillin, Marie-Sophie: Internationales Privatrecht und Data Act. Grenzüberschreitende Reichweite des Data Act am Beispiel der Datenweitergabevereinbarung, MMR 2026, 188–192.",
@@ -167,28 +179,27 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 5, konfidenz: "belegt",
+        score: 5,
         text: "Die Frage nach dem Vorliegen eines vernetzten Produkts gehört zu den am intensivsten diskutierten Grundsatzfragen des Data Act. Insbesondere die Einordnung nach Art. 2 Nr. 5 DA wird in nahezu jeder Einführung, jedem Praxisleitfaden und jeder vertiefenden Kommentierung zum Data Act zumindest thematisiert, in einem erheblichen Teil der Literatur auch vertieft behandelt. Die Aspekte „verbundener Dienst“ und „Marktortprinzip“ werden demgegenüber seltener eigenständig vertieft, meist im Anschluss an die Produktdefinition mitbehandelt."
       },
       aufwand: {
-        score: 2, spanne: "2 oder 3", konfidenz: "vorlaeufig",
-        text: "Für Dateninhaber bedeutet die Anwendungsbereichsprüfung in der Regel keine grundlegende technische oder organisatorische Neuausrichtung, wohl aber die Integration eines zusätzlichen Prüfschritts in bestehende Compliance- und Produktfreigabeprozesse. Die Konzeption eines Produkts – und damit letztlich auch die Frage, ob es überhaupt als vernetztes Produkt gilt – liegt dabei zunächst in der unternehmerischen Entscheidungshoheit des Herstellers selbst. Jede neue Produktlinie sowie jede funktionale Erweiterung eines bestehenden Produkts erfordert jedoch eine erneute Einordnung anhand der Tatbestandsmerkmale des Art. 2 Nr. 5, 6 DA.",
-        anmerkung: "Das Quelldokument nennt hier keine feste Zahl, sondern eine Spanne. Die Festlegung steht im Team noch aus."
+        score: 2, spanne: "2 oder 3",
+        text: "Für Dateninhaber bedeutet die Anwendungsbereichsprüfung in der Regel keine grundlegende technische oder organisatorische Neuausrichtung, wohl aber die Integration eines zusätzlichen Prüfschritts in bestehende Compliance- und Produktfreigabeprozesse. Die Konzeption eines Produkts – und damit letztlich auch die Frage, ob es überhaupt als vernetztes Produkt gilt – liegt dabei zunächst in der unternehmerischen Entscheidungshoheit des Herstellers selbst. Jede neue Produktlinie sowie jede funktionale Erweiterung eines bestehenden Produkts erfordert jedoch eine erneute Einordnung anhand der Tatbestandsmerkmale des Art. 2 Nr. 5, 6 DA."
       },
       streit: {
-        score: 3, konfidenz: "belegt",
+        score: 3,
         text: "Ein etablierter Meinungsstreit besteht zur Rechtsnatur der Marktortregelung: Ist Art. 1 Abs. 3 DA als verordnungsautonome einseitige Kollisionsnorm zu verstehen, die den Data Act unabhängig vom gewählten Vertragsstatut zwingend zur Anwendung bringt? Oder ist die Norm mangels expliziter gesetzgeberischer Festlegung lediglich Bestandteil des mitgliedstaatlichen Sachrechts, mit der Folge, dass eine Rechtswahl zugunsten außereuropäischen Rechts die Geltung des Data Act im Einzelfall verdrängen könnte? Für die Einordnung als vernetztes Produkt oder verbundenen Dienst im Übrigen ist demgegenüber kein vergleichbar verfestigter Positionenstreit erkennbar; hier stehen eher offene, noch unbeantwortete Auslegungsfragen im Vordergrund."
       },
       unsicherheit: {
-        score: 3, konfidenz: "belegt",
+        score: 3,
         text: "Mehrere, voneinander unabhängige Aspekte der Anwendungsbereichsbestimmung sind in der Literatur bislang nicht konsolidiert geklärt. Die Definition des vernetzten Produkts verweist über den Begriff der Produktdaten wiederum auf das vernetzte Produkt selbst zurück, was eine in sich verschränkte Begriffsbildung zur Folge hat. Auch die Abgrenzung zwischen verbundenen Diensten und virtuellen Assistenten ist nicht trennscharf möglich, sodass der genaue Anwendungsbereich für Anbieter virtueller Assistenten im Einzelnen unklar bleibt. Für bestimmte Adressaten der Marktortregelung – etwa Anbieter von Anwendungen für intelligente Verträge – verlangt der Wortlaut zudem keinen ausdrücklichen Bezug zur Europäischen Union, ohne dass hierfür eine Begründung ersichtlich ist; ob es sich um ein Redaktionsversehen handelt, ist offen. Schließlich bleibt bei der Marktortregelung unbeantwortet, wessen Handlung für das Inverkehrbringen eines Produkts in der EU maßgeblich ist und ob die Pflichten bereits dann eingreifen, wenn ein Dritter das Produkt ohne Kenntnis des Herstellers in Verkehr gebracht hat."
       },
       bussgeld: {
-        score: 4, konfidenz: "belegt",
+        score: 4,
         text: "Eine fehlerhafte Einordnung als außerhalb des Anwendungsbereichs liegend führt nicht zu einem isolierten Einzelverstoß, sondern zur gleichzeitigen Nichterfüllung sämtlicher Pflichten aus Kapitel II des Data Act. Die Mitgliedstaaten können bei Verstößen gegen die Verpflichtungen aus der Verordnung Sanktionen oder Geldbußen verhängen. Angesichts der Bandbreite der betroffenen Folgepflichten wird das Bußgeldrisiko einer Fehleinordnung trotz aktuell noch im Aufbau befindlicher Kontrollpraxis als hoch eingeschätzt."
       },
       haftung: {
-        score: 3, konfidenz: "belegt",
+        score: 3,
         text: "Der Data Act selbst äußert sich nicht zu den zivilrechtlichen Folgen von Pflichtverletzungen; er regelt in Art. 40 DA ausschließlich die öffentlich-rechtlichen Sanktionsfolgen eines Verstoßes. Zivilrechtliche Ansprüche im Zusammenhang mit einer Fehleinordnung stützen sich daher auf die allgemeinen Erfüllungsansprüche der Nutzer aus Art. 4, 5 DA sowie auf das jeweils anwendbare allgemeine Zivilrecht. Eine eigenständige, speziell auf Anwendungsbereichsfragen zugeschnittene Schadensersatzgrundlage besteht im Data Act nicht, sodass das Haftungsrisiko moderater ausfällt als das Bußgeldrisiko."
       }
     }
@@ -239,28 +250,27 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 1, konfidenz: "belegt",
+        score: 1,
         text: "Die Frage nach der zeitlichen Anwendbarkeit des Data Act auf vor dem 12. September 2025 generierte Daten wird in der bisherigen Literatur nur vereinzelt und meist beiläufig behandelt. Während sie in der Praxis für nahezu jeden Dateninhaber mit Bestandsprodukten relevant ist, findet sich bislang keine vertiefte, eigenständige Auseinandersetzung. Die wenigen Stellungnahmen sind vor allem in Kommentierungen und punktuellen Fachbeiträgen zu finden, nicht in eigenständigen Aufsätzen."
       },
       aufwand: {
-        score: 2, spanne: "2 bis 3", konfidenz: "vorlaeufig",
-        text: "Der Aufwand für Dateninhaber hängt maßgeblich davon ab, welcher der beiden Positionen gefolgt wird. Orientiert sich ein Dateninhaber an der Position der Kommission und beschränkt die Zugangs- und Weitergabepflichten auf nach dem Stichtag generierte Daten, genügt eine organisatorische Kennzeichnung des Entstehungszeitpunkts der jeweiligen Datenbestände; ein überschaubarer Prüf- und Dokumentationsaufwand. Würde hingegen die Gegenposition zutreffen, wonach auch historische Daten erfasst sind, müssten bestehende Datenbestände nachträglich für Zugangsansprüche aufbereitet werden, was einen deutlich höheren, teils grundlegenden technischen und organisatorischen Umbau bestehender Systeme erfordern würde.",
-        anmerkung: "Das Quelldokument nennt hier keine feste Zahl, sondern eine Spanne. Die Festlegung steht im Team noch aus."
+        score: 2, spanne: "2 bis 3",
+        text: "Der Aufwand für Dateninhaber hängt maßgeblich davon ab, welcher der beiden Positionen gefolgt wird. Orientiert sich ein Dateninhaber an der Position der Kommission und beschränkt die Zugangs- und Weitergabepflichten auf nach dem Stichtag generierte Daten, genügt eine organisatorische Kennzeichnung des Entstehungszeitpunkts der jeweiligen Datenbestände; ein überschaubarer Prüf- und Dokumentationsaufwand. Würde hingegen die Gegenposition zutreffen, wonach auch historische Daten erfasst sind, müssten bestehende Datenbestände nachträglich für Zugangsansprüche aufbereitet werden, was einen deutlich höheren, teils grundlegenden technischen und organisatorischen Umbau bestehender Systeme erfordern würde."
       },
       streit: {
-        score: 2, konfidenz: "belegt",
+        score: 2,
         text: "Ein etablierter Meinungsstreit mit gefestigten Gegenpositionen besteht bislang nicht. Die FAQ der EU-Kommission vertreten in Frage 4 eine klare Position gegen die Anwendbarkeit auf Altdaten, ohne dass sich in der Literatur eine ebenso gefestigte Gegenmeinung herausgebildet hätte. Die vorhandenen kritischen Stimmen entwickeln zwar dogmatische Gegenargumente, treffen aber ausdrücklich keine abschließende eigene Festlegung, sodass kein echtes Streitverhältnis zwischen zwei etablierten Lagern vorliegt."
       },
       unsicherheit: {
-        score: 4, konfidenz: "belegt",
+        score: 4,
         text: "Die Frage weist eine hohe Unsicherheit auf. Der Verordnungstext selbst enthält keine ausdrückliche zeitliche Regelung; die einzige Klarstellung betrifft die Konzeptionspflicht nach Art. 3 Abs. 1 DA. Die FAQ der Kommission, die als praktische Orientierung dienen, sind zudem in sich nicht konsistent: Während Frage 4 eine klare zeitliche Grenze zieht, verzichtet Frage 32 zum Datenzugang beim Gerätewechsel auf eine entsprechende Einschränkung. Diese interne Uneinheitlichkeit in Kombination mit dem Fehlen einer gefestigten Literaturmeinung macht die Frage zu einer Forschungslücke."
       },
       bussgeld: {
-        score: 3, konfidenz: "belegt",
+        score: 3,
         text: "Orientiert sich ein Dateninhaber an der Position der Kommission und verweigert den Zugang zu vor dem Stichtag generierten Daten, besteht ein moderates Bußgeldrisiko, da eine spätere abweichende Auslegung durch Behörden oder Gerichte nicht ausgeschlossen werden kann. Die Anlehnung an die offizielle FAQ-Position dürfte das Risiko jedoch mindern, da sie als nachvollziehbare Rechtsauffassung gelten kann."
       },
       haftung: {
-        score: 3, konfidenz: "belegt",
+        score: 3,
         text: "Nutzer, denen unter Berufung auf die FAQ-Position der Zugang zu historischen Daten verweigert wird, könnten bei einer künftig abweichenden Auslegung zivilrechtliche Erfüllungsansprüche aus Art. 4, 5 DA geltend machen. Das Risiko bleibt angesichts der offenen Literaturlage und der fehlenden ausdrücklichen Regelung im Verordnungstext bestehen, ist aber durch die Stützung auf die Kommissions-FAQ als anerkannte Praxisorientierung abgemildert."
       }
     }
@@ -322,31 +332,28 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 2, konfidenz: "vorlaeufig",
-        text: "Die Frage wird in der ausgewerteten Literatur behandelt, aber nicht als eigenständiges Thema vertieft. Daum/Laude behandeln sie im Rahmen einer breiteren Betrachtung der Digitalregulierung für KMU. Eine eigenständige Auseinandersetzung allein mit Art. 7 DA ist im vorliegenden Material nicht enthalten.",
-        anmerkung: "Vorschlag ohne Literaturauszählung. Der Wert beruht allein auf der Dichte der ausgewerteten Quellen und ist vor einer Festlegung zu überprüfen."
+        score: 2,
+        text: "Die Frage wird in der ausgewerteten Literatur behandelt, aber nicht als eigenständiges Thema vertieft. Daum/Laude behandeln sie im Rahmen einer breiteren Betrachtung der Digitalregulierung für KMU. Eine eigenständige Auseinandersetzung allein mit Art. 7 DA ist im vorliegenden Material nicht enthalten."
       },
       aufwand: {
-        score: 2, konfidenz: "vorlaeufig",
-        text: "Die Prüfung der Schwellenwerte erfordert das Erfassen und Dokumentieren von Beschäftigtenzahl sowie Umsatz oder Bilanzsumme. Ein Eingriff in technische Systeme oder Vertragswerke ist damit nicht verbunden. Nach der verankerten Skala liegt dies im Bereich einer Dokumentations- und Nachweispflicht.",
-        anmerkung: "Zu berücksichtigen wäre, dass die Prüfung bei jeder Veränderung der Unternehmensgröße zu wiederholen ist. Ob das eine Einordnung als 3 rechtfertigt, ist im Team abzustimmen."
+        score: 2,
+        text: "Die Prüfung der Schwellenwerte erfordert das Erfassen und Dokumentieren von Beschäftigtenzahl sowie Umsatz oder Bilanzsumme. Ein Eingriff in technische Systeme oder Vertragswerke ist damit nicht verbunden. Nach der verankerten Skala liegt dies im Bereich einer Dokumentations- und Nachweispflicht."
       },
       streit: {
-        score: 1, konfidenz: "vorlaeufig",
+        score: 1,
         text: "In der ausgewerteten Literatur ist kein Positionenstreit zur Auslegung von Art. 7 DA erkennbar. Die Kritik von Daum/Laude richtet sich gegen die rechtspolitische Ausgestaltung der Ausnahme, nicht gegen ihre Auslegung. Die Schwellenwerte selbst sind im Wortlaut festgelegt."
       },
       unsicherheit: {
-        score: 3, konfidenz: "vorlaeufig",
+        score: 3,
         text: "Der Anwendungsbereich der Ausnahme ist dem Wortlaut nach klar. Offen bleiben nach dem ausgewerteten Material jedoch Anschlussfragen: die genaue Berechnung der Schwellenwerte, das Verhältnis zur KMU-Empfehlung 2003/361/EG sowie die Behandlung eines Überschreitens während eines laufenden Vertragsverhältnisses. Auch die Auswirkungen des Digital Omnibus auf Art. 7 DA selbst sind aus dem Material nicht ersichtlich."
       },
       bussgeld: {
-        score: 4, konfidenz: "vorlaeufig",
+        score: 4,
         text: "Es handelt sich um eine Schwellenfrage. Nach der Projektmethodik bemisst sich das Risiko nicht an der Frage selbst, sondern am Ausmaß der Folgepflichten bei einer Fehleinordnung. Wer sich zu Unrecht auf die Ausnahme beruft, erfüllt sämtliche Pflichten des Kapitels II nicht. Die Bandbreite der betroffenen Folgepflichten spricht für einen hohen Wert."
       },
       haftung: {
-        score: 3, konfidenz: "vorlaeufig",
-        text: "Bei zu Unrecht angenommener Ausnahme könnten Nutzer Erfüllungsansprüche aus Art. 4, 5 DA geltend machen. Eine eigenständige, speziell auf die KMU-Ausnahme zugeschnittene Anspruchsgrundlage besteht nach dem ausgewerteten Material nicht. Das Haftungsrisiko fällt damit moderater aus als das Bußgeldrisiko.",
-        anmerkung: "Ob Erfüllungsansprüche in dieser Konstellation tatsächlich bestehen, wurde nicht anhand einer Quelle geprüft."
+        score: 3,
+        text: "Bei zu Unrecht angenommener Ausnahme könnten Nutzer Erfüllungsansprüche aus Art. 4, 5 DA geltend machen. Eine eigenständige, speziell auf die KMU-Ausnahme zugeschnittene Anspruchsgrundlage besteht nach dem ausgewerteten Material nicht. Das Haftungsrisiko fällt damit moderater aus als das Bußgeldrisiko."
       }
     }
   },
@@ -394,33 +401,26 @@ const FRAGEN = [
     bewertungen: {
       haeufigkeit: {
         score: 2,
-        konfidenz: "belegt",
         text: "Die Frage wird bislang nur in einem einzigen Fachaufsatz mit nennenswerter dogmatischer Tiefe behandelt; darüber hinaus finden sich allenfalls vereinzelte, kurze Erwähnungen in weiterer Literatur. Anders als bei zentralen Grundsatznormen des Data Act (etwa dem Verhältnis von Art. 3 und Art. 4 DA) handelt es sich damit um eine bislang wenig durchdrungene Randfrage, zu der es an einer breiteren, über mehrere unabhängige Quellen hinweg geführten Diskussion fehlt."
       },
       aufwand: {
         score: 3,
-        konfidenz: "belegt",
         text: "Für Dateninhaber besteht der Aufwand zum einen in der technischen Umsetzung einer wirksamen Anonymisierung, die hohen Anforderungen genügen muss, um tatsächlich jede Zuordenbarkeit auszuschließen. Zum anderen erfordert die Differenzierung zwischen zwingend gebotener, lediglich sinnvoller und strategisch motivierter Anonymisierung einen wiederkehrenden Dokumentations- und Abwägungsprozess, insbesondere zur Wahrung der Verhältnismäßigkeit nach Art. 2 Nr. 17 DA. Ein vollständiger technischer Umbau der Produktarchitektur ist damit nicht zwingend verbunden, wohl aber ein nicht unerheblicher Aufwand zur Gestaltung und Dokumentation der jeweiligen Anonymisierungsstrategie."
       },
       streit: {
         score: 3,
-        konfidenz: "belegt",
-        text: "Zur grundsätzlichen Zulässigkeit einer datenschutzrechtlich gebotenen oder sinnvollen Anonymisierung im Verhältnis zu den Zugangsansprüchen aus Art. 4, 5 DA besteht keine etablierte Gegenposition; die Argumentation stützt sich auf mehrere übereinstimmende gesetzliche Anknüpfungspunkte. Allerdings wird in der Literatur ausdrücklich als umstritten bezeichnet, ob die Anonymisierung selbst eine rechtfertigungsbedürftige Verarbeitung iSd Art. 4 Nr. 2 DSGVO darstellt. Hierbei handelt es sich um einen eigenständigen, benannten Meinungsstreit zu einer vorgelagerten datenschutzrechtlichen Frage.",
-        anmerkung: "Der Streit, auf den sich die Bewertung stützt, betrifft eine Vorfrage und wird in der inhaltlichen Darstellung nicht behandelt. Ob ein Streit zu einer Vorfrage den Wert der eigentlichen Rechtsfrage anheben soll, ist im Team zu klären."
+        text: "Zur grundsätzlichen Zulässigkeit einer datenschutzrechtlich gebotenen oder sinnvollen Anonymisierung im Verhältnis zu den Zugangsansprüchen aus Art. 4, 5 DA besteht keine etablierte Gegenposition; die Argumentation stützt sich auf mehrere übereinstimmende gesetzliche Anknüpfungspunkte. Allerdings wird in der Literatur ausdrücklich als umstritten bezeichnet, ob die Anonymisierung selbst eine rechtfertigungsbedürftige Verarbeitung iSd Art. 4 Nr. 2 DSGVO darstellt. Hierbei handelt es sich um einen eigenständigen, benannten Meinungsstreit zu einer vorgelagerten datenschutzrechtlichen Frage."
       },
       unsicherheit: {
         score: 4,
-        konfidenz: "belegt",
         text: "Unsicherheit besteht bei der Frage, welche konkreten Anstrengungen ein Dateninhaber bei der Datenerhebung unternehmen muss, um eine spätere Nutzerzuordnung zu ermöglichen. Ungeklärt ist zudem, wie mit dem Unterschied zwischen „absoluter“ und lediglich „relativer“ Anonymisierung (bei der der Dateninhaber selbst keinen Personenbezug herstellen kann, der Nutzer über zusätzliche Informationen aber durchaus) im Rahmen des Data Act umzugehen ist. Eine ausdrückliche Anti-Umgehungsregelung fehlt im Verordnungstext vollständig."
       },
       bussgeld: {
         score: 3,
-        konfidenz: "belegt",
         text: "Wird eine Anonymisierung im Einzelfall als unzulässige Umgehung der Zugangsansprüche gewertet, führt dies zur Nichterfüllung der Art. 4, 5 DA und kann Sanktionen nach Art. 40 DA nach sich ziehen."
       },
       haftung: {
         score: 3,
-        konfidenz: "belegt",
         text: "Nutzer, die trotz erfolgter Anonymisierung einen Datenzugang verlangen und die Anonymisierung als rechtsmissbräuchliche Vereitelung ihres Anspruchs ansehen, könnten Erfüllungsansprüche aus Art. 4, 5 DA geltend machen."
       }
     }
@@ -477,32 +477,26 @@ const FRAGEN = [
     bewertungen: {
       haeufigkeit: {
         score: 4,
-        konfidenz: "belegt",
         text: "Das Verhältnis von Art. 3 und Art. 4 DA gehört zu den am meisten diskutierten Fragen des Data Act. Als praxisrelevanteste Normen der Verordnung werden beide Vorschriften in mehreren Beiträgen vertieft behandelt."
       },
       aufwand: {
         score: 4,
-        konfidenz: "belegt",
         text: "Der Aufwand für Dateninhaber hängt maßgeblich davon ab, in welchem Umfang eine technische Umgestaltung des Produkts zur direkten Datenzugänglichmachung erforderlich ist und welche prozessualen Mechanismen zur Bereitstellung von Daten auf Anfrage vorgehalten werden müssen. Eine Umsetzung von Art. 3 Abs. 1 DA erfordert die Konzeption geeigneter Schnittstellen, Nutzerkonten oder Apps für den direkten Datenzugriff und kommt damit einem grundlegenden technischen Umbau nahe. Eine Umsetzung von Art. 4 DA erfordert demgegenüber vor allem einen prozessualen Bereitstellungsmechanismus, der Datenanfragen des Nutzers abwickelt, ohne die Produktarchitektur selbst zu verändern."
       },
       streit: {
         score: 3,
-        konfidenz: "belegt",
         text: "Zum Verhältnis von Art. 3 und Art. 4 DA werden in der Literatur drei Auslegungspositionen vertreten (echte Subsidiarität, Anspruchskonkurrenz mit Einrede sowie die Alternativität), die jeweils eigenständig begründet werden. Die Alternativitätsthese wird davon am häufigsten vertreten, ohne dass sich bislang eine gefestigte herrschende Meinung herausgebildet hätte. Auch innerhalb der Alternativitätsthese bleibt jedoch eine dogmatische Nuance ungeklärt: ob es sich um ein echtes Wahlrecht des Herstellers oder lediglich um einen faktischen, über die Ausnahmeregelung vermittelten Gestaltungsspielraum handelt."
       },
       unsicherheit: {
         score: 5,
-        konfidenz: "belegt",
         text: "Neben der Grundsatzfrage zum Normverhältnis bestehen mehrere eigenständige offene Punkte: die genaue Reichweite der Einschränkung „soweit relevant und technisch durchführbar“ in Art. 3 Abs. 1 DA, die Frage, ob und wie im Rahmen von Art. 3 Abs. 1 DA Datenschutzmaßnahmen zu berücksichtigen sind, sowie die ungeklärte Übertragbarkeit des Geschäftsgeheimnisschutzes aus Art. 4 Abs. 6-9 DA auf die Konstellation des Art. 3 Abs. 1 DA."
       },
       bussgeld: {
         score: 3,
-        konfidenz: "belegt",
         text: "Da dieses Thema zu den zentralen, praktisch am häufigsten einschlägigen Vorschriften des Data Act zählt, wirkt sich eine unzutreffende Einordnung – etwa die irrige Annahme, ein technisch eingerichteter Access-by-Design-Zugang genüge bereits vollständig, oder umgekehrt – unmittelbar auf die Erfüllung zentraler Kapitel-II-Pflichten aus und kann Sanktionen nach Art. 40 DA auslösen."
       },
       haftung: {
         score: 3,
-        konfidenz: "belegt",
         text: "Art. 4 DA gewährt dem Nutzer einen ausdrücklich einklagbaren Anspruch auf Datenbereitstellung. Geht ein Dateninhaber fälschlich davon aus, dieser Anspruch sei bereits durch einen Access-by-Design-Zugang nach Art. 3 Abs. 1 DA abgedeckt, oder verweigert er die Bereitstellung unter Verweis auf eine vermeintlich vorrangige Konzeptionsentscheidung des Herstellers, drohen unmittelbar durchsetzbare zivilrechtliche Erfüllungsansprüche des Nutzers."
       }
     }
@@ -598,32 +592,28 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 4, konfidenz: "vorlaeufig",
-        text: "Wöbbeking/Andjic widmen der Abgrenzung einen vollständigen Aufsatz, was für eine eigenständige Vertiefung spricht. Auch in den Projektunterlagen zu den Datenarten wird die Frage als zentral behandelt und mit Schreiber/Pommerening/Schoel belegt.",
-        anmerkung: "Vorschlag ohne Literaturauszählung. Der Wert beruht auf der Dichte der ausgewerteten Quellen und ist vor einer Festlegung zu überprüfen."
+        score: 4,
+        text: "Wöbbeking/Andjic widmen der Abgrenzung einen vollständigen Aufsatz, was für eine eigenständige Vertiefung spricht. Auch in den Projektunterlagen zu den Datenarten wird die Frage als zentral behandelt und mit Schreiber/Pommerening/Schoel belegt."
       },
       aufwand: {
-        score: 3, konfidenz: "vorlaeufig",
+        score: 3,
         text: "Die Abgrenzung erfordert eine Dokumentation sämtlicher Verarbeitungsschritte sowie der dabei einfließenden Informationen, die nicht aus den Produktdaten stammen. Das betrifft bestehende Prozesse der Datenverarbeitung und geht damit über eine reine Nachweispflicht hinaus."
       },
       streit: {
-        score: 3, konfidenz: "vorlaeufig",
-        text: "Wöbbeking/Andjic stellen zwei Auslegungsrichtungen gegenüber, einen weiten und einen engen Ausschluss, und argumentieren für die engere. Sie führen für beide Seiten systematische Gründe an. Ob sich daraus bereits etablierte Lager ergeben, lässt sich aus dem vorliegenden Material nicht abschließend beurteilen.",
-        anmerkung: "Die Einordnung als 3 unterstellt, dass beide Positionen vertreten werden. Ob die weite Auslegung tatsächlich Anhänger hat, wäre über Literatur-Coding zu prüfen."
+        score: 3,
+        text: "Wöbbeking/Andjic stellen zwei Auslegungsrichtungen gegenüber, einen weiten und einen engen Ausschluss, und argumentieren für die engere. Sie führen für beide Seiten systematische Gründe an. Ob sich daraus bereits etablierte Lager ergeben, lässt sich aus dem vorliegenden Material nicht abschließend beurteilen."
       },
       unsicherheit: {
-        score: 4, konfidenz: "vorlaeufig",
+        score: 4,
         text: "Wöbbeking/Andjic stellen ausdrücklich fest, dass der Data Act die Frage nicht ausdrücklich beantwortet. Auch das übrige Datenrecht ermöglicht nach ihrer Darstellung keine abschließende Bestimmung; zur DSGVO bemerken sie, dass der dortige Ausschlussumfang hoch umstritten und nicht höchstrichterlich geklärt ist. Ein Abgrenzungskriterium wird vorgeschlagen, ist aber noch nicht gefestigt."
       },
       bussgeld: {
-        score: 3, konfidenz: "vorlaeufig",
-        text: "Eine zu weite Berufung auf den Ausschluss kommt einer Verweigerung der Datenbereitstellung gleich und wäre damit sanktionsbewehrt. Anders als bei einer Fehleinordnung im Anwendungsbereich betrifft dies jedoch nur einzelne Datenkategorien, nicht den gesamten Pflichtenkatalog.",
-        anmerkung: "Der Sanktionsrahmen wurde nicht anhand einer Quelle geprüft."
+        score: 3,
+        text: "Eine zu weite Berufung auf den Ausschluss kommt einer Verweigerung der Datenbereitstellung gleich und wäre damit sanktionsbewehrt. Anders als bei einer Fehleinordnung im Anwendungsbereich betrifft dies jedoch nur einzelne Datenkategorien, nicht den gesamten Pflichtenkatalog."
       },
       haftung: {
-        score: 3, konfidenz: "vorlaeufig",
-        text: "Bei zu Unrecht angenommenem Ausschluss könnten Nutzer Erfüllungsansprüche geltend machen. Eine eigenständige Anspruchsgrundlage für diese Konstellation ist im ausgewerteten Material nicht ersichtlich.",
-        anmerkung: "Nicht anhand einer Quelle geprüft."
+        score: 3,
+        text: "Bei zu Unrecht angenommenem Ausschluss könnten Nutzer Erfüllungsansprüche geltend machen. Eine eigenständige Anspruchsgrundlage für diese Konstellation ist im ausgewerteten Material nicht ersichtlich."
       }
     }
   },
@@ -701,38 +691,27 @@ const FRAGEN = [
     bewertungen: {
       haeufigkeit: {
         score: 2,
-        konfidenz: "vorlaeufig",
-        text: "Das Verhältnis von Data Act und DSGVO wird in der ausgewerteten Literatur vielfach behandelt. Die konkrete Frage, wie gemischte Datensätze abzugrenzen sind, behandelt jedoch keine der ausgewerteten Quellen eigenständig; die Aussagen, auf denen die Ausarbeitung beruht, stehen jeweils in anderem Zusammenhang.",
-        anmerkung: "Vorschlag ohne Literaturauszählung. Die Einordnung folgt der Bewertung vergleichbarer Schnittstellenfragen zur DSGVO in dieser Matrix."
+        text: "Das Verhältnis von Data Act und DSGVO wird in der ausgewerteten Literatur vielfach behandelt. Die konkrete Frage, wie gemischte Datensätze abzugrenzen sind, behandelt jedoch keine der ausgewerteten Quellen eigenständig; die Aussagen, auf denen die Ausarbeitung beruht, stehen jeweils in anderem Zusammenhang."
       },
       aufwand: {
         score: 3,
-        konfidenz: "vorlaeufig",
         text: "Erforderlich ist die Klassifizierung von Datensätzen auf Ebene einzelner Bestandteile, die Prüfung von Verknüpfungsmöglichkeiten sowie eine Einordnung, die je nach Empfänger unterschiedlich ausfallen kann. Das betrifft bestehende Prozesse und Verträge, erfordert aber nicht zwingend einen Umbau der Produktarchitektur."
       },
       streit: {
         score: 2,
-        konfidenz: "vorlaeufig",
-        text: "In den ausgewerteten Quellen sind keine gegensätzlichen Positionen zur Abgrenzung gemischter Datensätze erkennbar. Die Frage ist eher offen als umstritten.",
-        anmerkung: "Die Einordnung als 2 statt 1 folgt der Bewertung vergleichbarer Fragen ohne erkennbaren Positionenstreit in dieser Matrix."
+        text: "In den ausgewerteten Quellen sind keine gegensätzlichen Positionen zur Abgrenzung gemischter Datensätze erkennbar. Die Frage ist eher offen als umstritten."
       },
       unsicherheit: {
         score: 4,
-        konfidenz: "vorlaeufig",
-        text: "Keine der ausgewerteten Quellen zum Data Act beantwortet, wie mit untrennbar verbundenen Bestandteilen umzugehen ist. Hinzu kommt, dass die Grenze selbst in Bewegung ist: Der relative Personenbezug ist Teil eines noch nicht verabschiedeten Vorschlags, die angekündigten Durchführungsrechtsakte stehen aus, und die Rechtsprechung hat den Kreis der nicht-personenbezogenen Daten nach Wendehorst bereits erweitert.",
-        anmerkung: "Auch ein Wert von 5 wäre vertretbar. Gegen die Höchststufe spricht, dass Teilantworten vorliegen – Einordnung auf Datumsebene, Vorrang des Datenschutzrechts."
+        text: "Keine der ausgewerteten Quellen zum Data Act beantwortet, wie mit untrennbar verbundenen Bestandteilen umzugehen ist. Hinzu kommt, dass die Grenze selbst in Bewegung ist: Der relative Personenbezug ist Teil eines noch nicht verabschiedeten Vorschlags, die angekündigten Durchführungsrechtsakte stehen aus, und die Rechtsprechung hat den Kreis der nicht-personenbezogenen Daten nach Wendehorst bereits erweitert."
       },
       bussgeld: {
         score: 4,
-        konfidenz: "vorlaeufig",
-        text: "Eine Fehleinordnung kann in beide Richtungen sanktionsbewehrt sein: Werden personenbezogene Bestandteile ohne Rechtsgrundlage weitergegeben, liegt ein Verstoß gegen die DSGVO vor; werden nicht-personenbezogene Bestandteile zu Unrecht zurückgehalten, eine Nichterfüllung der Bereitstellungspflicht nach dem Data Act.",
-        anmerkung: "Die Sanktionsrahmen wurden nicht anhand einer Quelle geprüft."
+        text: "Eine Fehleinordnung kann in beide Richtungen sanktionsbewehrt sein: Werden personenbezogene Bestandteile ohne Rechtsgrundlage weitergegeben, liegt ein Verstoß gegen die DSGVO vor; werden nicht-personenbezogene Bestandteile zu Unrecht zurückgehalten, eine Nichterfüllung der Bereitstellungspflicht nach dem Data Act."
       },
       haftung: {
         score: 4,
-        konfidenz: "vorlaeufig",
-        text: "Für personenbezogene Bestandteile kommen bei unzulässiger Weitergabe Schadensersatzansprüche der betroffenen Personen in Betracht, für nicht-personenbezogene Bestandteile bei unberechtigter Zurückhaltung Erfüllungsansprüche des Nutzers. Das Risiko besteht damit gegenüber zwei unterschiedlichen Gläubigergruppen.",
-        anmerkung: "Die Anspruchsgrundlagen wurden nicht anhand einer Quelle geprüft; die Einordnung folgt der Bewertung vergleichbarer Schnittstellenfragen in dieser Matrix."
+        text: "Für personenbezogene Bestandteile kommen bei unzulässiger Weitergabe Schadensersatzansprüche der betroffenen Personen in Betracht, für nicht-personenbezogene Bestandteile bei unberechtigter Zurückhaltung Erfüllungsansprüche des Nutzers. Das Risiko besteht damit gegenüber zwei unterschiedlichen Gläubigergruppen."
       }
     }
   },
@@ -782,32 +761,26 @@ const FRAGEN = [
     bewertungen: {
       haeufigkeit: {
         score: 2,
-        konfidenz: "belegt",
         text: "Das Verhältnis von Data Act und DSGVO im Allgemeinen gehört zu den am intensivsten diskutierten Themenkomplexen des Data Act und wird in zahlreichen Beiträgen vertieft behandelt. Die hier konkret aufgeworfene Frage, ob der Data Act selbst als Rechtsgrundlage bzw. rechtliche Verpflichtung iSv Art. 6 Abs. 1 lit. c DSGVO für die Weitergabe von Daten unbeteiligter Dritter fungiert, wird demgegenüber nur vereinzelt und meist im Rahmen breiterer Darstellungen zum Datenschutz-Spannungsverhältnis mitbehandelt, nicht aber als eigenständiger Schwerpunkt."
       },
       aufwand: {
         score: 3,
-        konfidenz: "belegt",
         text: "Für Dateninhaber besteht der Aufwand vor allem in der Prüfung und Dokumentation, ob Nutzer und betroffene Person personenidentisch sind, sowie in der anschließenden Bestimmung und Absicherung einer eigenständigen datenschutzrechtlichen Rechtsgrundlage (Einwilligung, Vertragserfüllung oder berechtigtes Interesse) für die Fälle, in denen dies nicht der Fall ist. Ein technischer Systemumbau ist damit nicht zwingend verbunden, wohl aber ein wiederkehrender rechtlicher Prüf- und Dokumentationsprozess bei jeder Weitergabeanfrage."
       },
       streit: {
         score: 2,
-        konfidenz: "belegt",
         text: "Ein etablierter Meinungsstreit mit benannten Gegenpositionen ist zu dieser konkreten Frage nicht erkennbar. Die Argumentation, dass der Data Act keine Rechtsgrundlage bei fehlender Personenidentität darstellt, wird im Wege eines Umkehrschlusses aus Art. 4 Abs. 12 DA und Art. 5 Abs. 7 DA hergeleitet, ohne dass hierzu eine widersprechende Auffassung ersichtlich wäre."
       },
       unsicherheit: {
         score: 4,
-        konfidenz: "belegt",
         text: "Der Verordnungstext selbst lässt ausdrücklich offen, wie die Weitergabe nach Art. 5 DA und die Bereitstellung nach Art. 4 DA datenschutzrechtlich einzuordnen sind, wenn man sie nicht unter die in Erwägungsgrund 7 S. 7 DA genannten Begriffe „Erhebung“ oder „Generierung“ fasst. Auch die Einordnung der Bereitstellungs- und Weitergabepflichten als rechtliche Verpflichtung iSv Art. 6 Abs. 1 lit. c DSGVO im Fall der Personenidentität wird nur im Konjunktiv als denkbare Lösung angeführt, nicht als gesicherte Erkenntnis."
       },
       bussgeld: {
         score: 4,
-        konfidenz: "belegt",
         text: "Verlässt sich ein Dateninhaber fälschlich auf den Data Act als eigenständige Rechtsgrundlage für die Weitergabe von Daten unbeteiligter Dritter, liegt darin ein eigenständiger DSGVO-Verstoß mit entsprechendem Sanktionsrahmen nach Art. 83 DSGVO, unabhängig von etwaigen Sanktionen nach dem Data Act selbst."
       },
       haftung: {
         score: 4,
-        konfidenz: "belegt",
         text: "Unbeteiligten Dritten, deren personenbezogene Daten ohne tragfähige eigenständige Rechtsgrundlage weitergegeben werden, steht grundsätzlich ein Schadensersatzanspruch nach Art. 82 DSGVO zu. Gleichzeitig drohen bei einer zu Unrecht verweigerten Weitergabe Erfüllungsansprüche des Nutzers aus Art. 5 DA."
       }
     }
@@ -860,32 +833,26 @@ const FRAGEN = [
     bewertungen: {
       haeufigkeit: {
         score: 2,
-        konfidenz: "belegt",
         text: "Die Verantwortlichkeitsfrage wird bislang nur als eines von mehreren Scharnieren zum Verhältnis von Data Act und DSGVO behandelt, nicht als eigenständiger Untersuchungsgegenstand. Während das übergeordnete Spannungsverhältnis zwischen Data Act und DSGVO insgesamt zu den am intensivsten diskutierten Themen zählt, ist die konkrete Verantwortlichkeitszuordnung bei den drei Verarbeitungsszenarien bislang nur vereinzelt vertieft worden."
       },
       aufwand: {
         score: 3,
-        konfidenz: "belegt",
         text: "Für Dateninhaber und Nutzer besteht der Aufwand vor allem in der wiederkehrenden Einzelfallprüfung, wer bei welchem Verarbeitungsschritt über Zwecke und Mittel entscheidet, sowie im Abschluss und der Pflege von Vereinbarungen zur gemeinsamen Verantwortlichkeit nach Art. 26 DSGVO, sobald eine gemeinsame Entscheidung vorliegt. Ein technischer Umbau ist damit nicht zwingend verbunden, wohl aber ein nicht unerheblicher rechtlich-organisatorischer Dokumentationsaufwand."
       },
       streit: {
         score: 2,
-        konfidenz: "belegt",
         text: "Eine etablierte Kontroverse mit benannten Gegenpositionen ist zu dieser Frage nicht erkennbar. Die vorliegende Darstellung entwickelt eine in sich stimmige, auf EuGH-Rechtsprechung (insbesondere zur gemeinsamen Verantwortlichkeit und zur Rechtssache Fashion ID) gestützte Differenzierung nach Verarbeitungsszenarien, ohne dass hierzu eine widersprechende Literaturauffassung ersichtlich wäre."
       },
       unsicherheit: {
         score: 3,
-        konfidenz: "belegt",
         text: "Unsicherheit besteht bei der Frage, wann genau eine gemeinsame Verantwortlichkeit statt einer Alleinverantwortlichkeit vorliegt, sowie bei der exakten Abgrenzung der Verantwortungssphären an den Schnittstellen zwischen Dateninhaber und Nutzer – insbesondere im Rahmen der Zugänglichmachung nach Art. 3 DA, wo die Einordnung als eigenständige Verarbeitungshandlung des Dateninhabers selbst nicht abschließend geklärt ist."
       },
       bussgeld: {
         score: 4,
-        konfidenz: "belegt",
         text: "Eine fehlerhafte Einordnung der eigenen Rolle als Verantwortlicher, gemeinsam Verantwortlicher oder Nicht-Verantwortlicher zählt zu den in der Aufsichtspraxis besonders häufig sanktionierten DSGVO-Verstößen, da hieran unmittelbar Rechenschafts-, Informations- und Dokumentationspflichten anknüpfen. Bei mehreren beteiligten Akteuren (Dateninhaber, Nutzer, Dritter) steigt das Risiko einer Fehlzuordnung zusätzlich."
       },
       haftung: {
         score: 4,
-        konfidenz: "belegt",
         text: "Bei gemeinsamer Verantwortlichkeit haften Dateninhaber und Nutzer nach Art. 82 DSGVO grundsätzlich gesamtschuldnerisch gegenüber der betroffenen Person, unabhängig von der internen Aufgabenverteilung. Eine unzutreffende Einschätzung der eigenen Verantwortlichkeit kann daher zu einer unerwarteten vollumfänglichen Haftung gegenüber Dritten führen."
       }
     }
@@ -998,31 +965,27 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 5, konfidenz: "vorlaeufig",
-        text: "Alle fünf ausgewerteten Quellen behandeln das Thema, vier davon vertieft. Dose/Pühl bezeichnen den Geschäftsgeheimnisschutz als eines der politisch umstrittensten Themen des Gesetzgebungsverfahrens. Wendehorst widmet ihm einen eigenen Abschnitt im Rahmen ihrer Prüfung der Primärrechtskonformität.",
-        anmerkung: "Vorschlag ohne Literaturauszählung. Der Wert beruht auf der Dichte der ausgewerteten Quellen und ist vor einer Festlegung zu überprüfen."
+        score: 5,
+        text: "Alle fünf ausgewerteten Quellen behandeln das Thema, vier davon vertieft. Dose/Pühl bezeichnen den Geschäftsgeheimnisschutz als eines der politisch umstrittensten Themen des Gesetzgebungsverfahrens. Wendehorst widmet ihm einen eigenen Abschnitt im Rahmen ihrer Prüfung der Primärrechtskonformität."
       },
       aufwand: {
-        score: 4, konfidenz: "vorlaeufig",
-        text: "Erforderlich sind die Identifikation der Geschäftsgeheimnisse, die Vereinbarung technischer und organisatorischer Maßnahmen, deren Überprüfung sowie eine laufende Dokumentation. Das betrifft Prozesse und Vertragswerke zugleich und liegt damit oberhalb einer bloßen Anpassung bestehender Verträge.",
-        anmerkung: "Ob die Einordnung als 4 oder 5 zutrifft, hängt davon ab, ob die TOM-Implementierung als grundlegender technischer Umbau gewertet wird. Im Team abzustimmen."
+        score: 4,
+        text: "Erforderlich sind die Identifikation der Geschäftsgeheimnisse, die Vereinbarung technischer und organisatorischer Maßnahmen, deren Überprüfung sowie eine laufende Dokumentation. Das betrifft Prozesse und Vertragswerke zugleich und liegt damit oberhalb einer bloßen Anpassung bestehender Verträge."
       },
       streit: {
-        score: 4, konfidenz: "vorlaeufig",
-        text: "Wendehorst vertritt eine primärrechtskonform erweiternde Auslegung, die vom Wortlaut abweicht. Dose/Pühl verweisen für unterschiedliche Auffassungen auf Czychowski/Lettl/Steinrötter. Denga bewertet die Regelung dagegen als gerechte Balance. Damit stehen sich erkennbar unterschiedliche Einschätzungen gegenüber.",
-        anmerkung: "Die Fundstelle bei Czychowski/Lettl/Steinrötter wurde nicht ausgewertet. Ob dort etablierte Lager belegt sind, ist offen."
+        score: 4,
+        text: "Wendehorst vertritt eine primärrechtskonform erweiternde Auslegung, die vom Wortlaut abweicht. Dose/Pühl verweisen für unterschiedliche Auffassungen auf Czychowski/Lettl/Steinrötter. Denga bewertet die Regelung dagegen als gerechte Balance. Damit stehen sich erkennbar unterschiedliche Einschätzungen gegenüber."
       },
       unsicherheit: {
-        score: 4, konfidenz: "vorlaeufig",
+        score: 4,
         text: "Denga: klare Kriterien dafür, wann zusätzliche Schutzmaßnahmen erforderlich sind, fehlen; zentrale Begriffe bleiben unbestimmt. Wendehorst: die Formulierung des Omnibus ist sprachlich doppeldeutig, und es bleibt unklar, was die Ergänzung erreichen soll. Dose/Pühl: der Nachweismechanismus bleibt vage, Evidenz zum Einfluss des Geheimnisschutzes fehlt."
       },
       bussgeld: {
-        score: 4, konfidenz: "vorlaeufig",
-        text: "Eine unberechtigte Verweigerung stellt eine Nichterfüllung der Bereitstellungspflicht dar und ist damit sanktionsbewehrt. Da die Voraussetzungen der Verweigerung nach dem ausgewerteten Material unklar sind, besteht ein erhöhtes Risiko einer Fehleinschätzung.",
-        anmerkung: "Der Sanktionsrahmen wurde nicht anhand einer Quelle geprüft."
+        score: 4,
+        text: "Eine unberechtigte Verweigerung stellt eine Nichterfüllung der Bereitstellungspflicht dar und ist damit sanktionsbewehrt. Da die Voraussetzungen der Verweigerung nach dem ausgewerteten Material unklar sind, besteht ein erhöhtes Risiko einer Fehleinschätzung."
       },
       haftung: {
-        score: 4, konfidenz: "vorlaeufig",
+        score: 4,
         text: "Wendehorst beschreibt eine doppelte Belastung: Bei unberechtigter Verweigerung drohen Erfüllungsansprüche des Nutzers; nach einer Geheimnisverletzung ist der Dateninhaber auf Schadensersatzansprüche beschränkt und trägt dabei das volle Prozessrisiko, wobei die Befriedigung häufig an Auffindbarkeit oder Solvenz des Schuldners scheitert."
       }
     }
@@ -1118,30 +1081,27 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 2, konfidenz: "vorlaeufig",
-        text: "Wendehorst behandelt die Nachweisproblematik ausführlich und als tragendes Argument ihrer Kritik. Denga und Dose/Pühl streifen sie, ohne sie zum eigenständigen Thema zu machen. Eine eigenständige Auseinandersetzung allein mit der Beweislastverteilung enthält keine der ausgewerteten Quellen.",
-        anmerkung: "Vorschlag ohne Literaturauszählung. Bei der Auszählung ist auf Abgrenzung zur Frage nach den Verweigerungsvoraussetzungen zu achten, um Doppelzählungen zu vermeiden."
+        score: 2,
+        text: "Wendehorst behandelt die Nachweisproblematik ausführlich und als tragendes Argument ihrer Kritik. Denga und Dose/Pühl streifen sie, ohne sie zum eigenständigen Thema zu machen. Eine eigenständige Auseinandersetzung allein mit der Beweislastverteilung enthält keine der ausgewerteten Quellen."
       },
       aufwand: {
-        score: 2, konfidenz: "vorlaeufig",
-        text: "Im Kern geht es um Dokumentationsvorbereitung sowie um Rechtswahl- und Gerichtsstandsklauseln. Ein Eingriff in technische Systeme ist damit nicht verbunden. Folgt man dem Auslegungsvorschlag von Wendehorst, käme die laufende Bewertung von Geheimniswert und wirtschaftlichen Anreizen hinzu.",
-        anmerkung: "Optionale Audits nach den Musterklauseln würden den Aufwand deutlich erhöhen. Ob sie in die Bewertung einfließen sollen, ist im Team zu klären."
+        score: 2,
+        text: "Im Kern geht es um Dokumentationsvorbereitung sowie um Rechtswahl- und Gerichtsstandsklauseln. Ein Eingriff in technische Systeme ist damit nicht verbunden. Folgt man dem Auslegungsvorschlag von Wendehorst, käme die laufende Bewertung von Geheimniswert und wirtschaftlichen Anreizen hinzu."
       },
       streit: {
-        score: 2, konfidenz: "vorlaeufig",
+        score: 2,
         text: "Wendehorst vertritt eine vom Wortlaut abweichende, erweiternde Auslegung. Ob dieser Position widersprochen wird, ist aus den ausgewerteten Quellen nicht ersichtlich. Ein etablierter Streit zwischen zwei Lagern ist bislang nicht erkennbar; es handelt sich eher um eine offene als um eine umstrittene Frage."
       },
       unsicherheit: {
-        score: 5, konfidenz: "vorlaeufig",
+        score: 5,
         text: "Denga stellt ausdrücklich fest, dass Fragen der Beweislast nationale Angelegenheiten bleiben und in den Musterklauseln nicht behandelt werden. Wendehorst hält die Formulierung des Omnibus für sprachlich doppeldeutig und den Zweck der Ergänzung für unklar. Dose/Pühl bemängeln den vagen Nachweismechanismus. Damit fehlt es sowohl an einer unionsrechtlichen Regelung als auch an einer konsolidierten Literaturmeinung."
       },
       bussgeld: {
-        score: 2, konfidenz: "vorlaeufig",
-        text: "Die Beweislastverteilung selbst dürfte kein Bußgeld auslösen. Relevant wird sie mittelbar, wenn eine Verweigerung mangels Nachweis als unberechtigt gilt. Das Risiko ist damit von der Frage nach den Verweigerungsvoraussetzungen abgeleitet und fällt eigenständig betrachtet gering aus.",
-        anmerkung: "Grenzfall: Ob die Frage überhaupt eigenständig zu bewerten ist oder ob das Risiko vollständig der Verweigerungsfrage zuzuordnen wäre, sollte im Team besprochen werden."
+        score: 2,
+        text: "Die Beweislastverteilung selbst dürfte kein Bußgeld auslösen. Relevant wird sie mittelbar, wenn eine Verweigerung mangels Nachweis als unberechtigt gilt. Das Risiko ist damit von der Frage nach den Verweigerungsvoraussetzungen abgeleitet und fällt eigenständig betrachtet gering aus."
       },
       haftung: {
-        score: 4, konfidenz: "vorlaeufig",
+        score: 4,
         text: "Wendehorst beschreibt die Folge direkt: Nach Schadenseintritt trägt der Dateninhaber das volle Prozessrisiko, und die Befriedigung der Ansprüche scheitert häufig an fehlender Auffindbarkeit oder mangelnder Solvenz des Schuldners. Denga ergänzt, dass das Schadensersatzrecht nationale Angelegenheit bleibt. Beides spricht für ein erhebliches Risiko."
       }
     }
@@ -1223,31 +1183,28 @@ const FRAGEN = [
 
     bewertungen: {
       haeufigkeit: {
-        score: 3, konfidenz: "vorlaeufig",
-        text: "Die TOM-Thematik wird in der ausgewerteten Literatur durchgehend behandelt, meist jedoch als Bestandteil der Darstellung des Verweigerungssystems. Denga geht am ausführlichsten auf die konkrete Ausgestaltung in den Musterklauseln ein. Eine eigenständige Auseinandersetzung mit der Frage, welche Maßnahmen erforderlich und ausreichend sind, enthält keine der Quellen.",
-        anmerkung: "Vorschlag ohne Literaturauszählung. Bei der Auszählung ist auf Abgrenzung zur Frage nach den Verweigerungsvoraussetzungen zu achten."
+        score: 3,
+        text: "Die TOM-Thematik wird in der ausgewerteten Literatur durchgehend behandelt, meist jedoch als Bestandteil der Darstellung des Verweigerungssystems. Denga geht am ausführlichsten auf die konkrete Ausgestaltung in den Musterklauseln ein. Eine eigenständige Auseinandersetzung mit der Frage, welche Maßnahmen erforderlich und ausreichend sind, enthält keine der Quellen."
       },
       aufwand: {
-        score: 5, konfidenz: "vorlaeufig",
+        score: 5,
         text: "Erforderlich sind die Vorabidentifikation der Geheimnisse, die Vereinbarung technischer und organisatorischer Maßnahmen mit jedem Nutzer und Datenempfänger, deren Überprüfung sowie gegebenenfalls Audit-Verfahren. Wendehorst spricht von umfangreichen technischen und organisatorischen Vorbereitungsmaßnahmen, die rückwirkend nicht mehr eingepreist werden können. Das entspricht nach der verankerten Skala einem grundlegenden technischen und organisatorischen Umbau."
       },
       streit: {
-        score: 2, konfidenz: "vorlaeufig",
+        score: 2,
         text: "In der ausgewerteten Literatur ist kein Positionenstreit darüber erkennbar, welche Maßnahmen erforderlich sind. Die Kritik richtet sich übereinstimmend gegen das Fehlen eines Maßstabs. Es handelt sich damit eher um eine offene als um eine umstrittene Frage."
       },
       unsicherheit: {
-        score: 5, konfidenz: "vorlaeufig",
+        score: 5,
         text: "Denga stellt ausdrücklich fest, dass klare Kriterien fehlen, wann zusätzliche Schutzmaßnahmen erforderlich sind, und dass zentrale Begriffe wie „most appropriate measures“ durchgängig unbestimmt bleiben. Eine Verzahnung mit etablierten Marktstandards oder Stellungnahmen technischer Agenturen hält er für wünschenswert, aber nicht erfolgt. Damit fehlt es sowohl an einer normativen Konkretisierung als auch an einem außerrechtlichen Referenzmaßstab."
       },
       bussgeld: {
-        score: 3, konfidenz: "vorlaeufig",
-        text: "Unmittelbar sanktionsbewehrt dürfte weniger die Auswahl der Maßnahmen sein als die daran anknüpfende Entscheidung: Wer die Maßnahmen des Nutzers zu Unrecht für unzureichend hält und deshalb verweigert, erfüllt die Bereitstellungspflicht nicht. Da der Maßstab unklar ist, besteht ein erhöhtes Risiko einer Fehleinschätzung.",
-        anmerkung: "Der Sanktionsrahmen wurde nicht anhand einer Quelle geprüft."
+        score: 3,
+        text: "Unmittelbar sanktionsbewehrt dürfte weniger die Auswahl der Maßnahmen sein als die daran anknüpfende Entscheidung: Wer die Maßnahmen des Nutzers zu Unrecht für unzureichend hält und deshalb verweigert, erfüllt die Bereitstellungspflicht nicht. Da der Maßstab unklar ist, besteht ein erhöhtes Risiko einer Fehleinschätzung."
       },
       haftung: {
-        score: 4, konfidenz: "vorlaeufig",
-        text: "Erweisen sich die Maßnahmen als unzureichend und wird das Geheimnis verwertet, ist der Dateninhaber nach Wendehorst auf Schadensersatzansprüche beschränkt und trägt das volle Prozessrisiko; die Befriedigung scheitert häufig an Auffindbarkeit oder Solvenz des Schuldners. Hinzu kommt bei Drittgeheimnissen eine mögliche Haftung gegenüber Zulieferern.",
-        anmerkung: "Die Haftung gegenüber Zulieferern ergibt sich aus dem Projekt-Orientierungsdokument (Kiefer/Schneider, Schritt „Bewerten“) und wurde nicht am Original geprüft."
+        score: 4,
+        text: "Erweisen sich die Maßnahmen als unzureichend und wird das Geheimnis verwertet, ist der Dateninhaber nach Wendehorst auf Schadensersatzansprüche beschränkt und trägt das volle Prozessrisiko; die Befriedigung scheitert häufig an Auffindbarkeit oder Solvenz des Schuldners. Hinzu kommt bei Drittgeheimnissen eine mögliche Haftung gegenüber Zulieferern."
       }
     }
   }
