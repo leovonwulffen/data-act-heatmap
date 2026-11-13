@@ -279,15 +279,30 @@ const FRAGEN = [
     id: "kmu-ausnahme",
     kategorie: "allgemein",
     kurztitel: "KMU-Ausnahme (Kapitel II)",
-    frage: "Welche Unternehmen sind von den Pflichten des Kapitels II im Data Act befreit?",
-    normen: "Art. 7 DA",
+    frage: "Welche Unternehmen sind von den Pflichten des Kapitels II befreit?",
+    normen: "Art. 7 DA · ErwGr. 41 DA",
 
     einleitung: [
-      "Der Data Act richtet sich in weiten Teilen an Unternehmen jeder Größe. Für kleinere Unternehmen stellt sich daher die Frage, ob und in welchem Umfang sie von den Pflichten befreit sind. Art. 7 DA enthält hierzu eine Ausnahme.",
-      "Sie ist allerdings enger gefasst, als der Begriff „KMU-Ausnahme“ vermuten lässt. Nach dem ausgewerteten Material lautet die zutreffende Ausgangsfrage nicht, ob eine Ausnahme greift, sondern welche Pflichten trotz einer möglichen Ausnahme bestehen bleiben."
+      "Der Data Act enthält in Art. 7 DA eine Ausnahme für kleine und mittlere Unternehmen. Sie soll verhindern, dass kleinere Unternehmen durch die technischen und organisatorischen Anforderungen des Kapitels II überlastet werden, also insbesondere durch die Regelungen zu Datenzugang und Datenweitergabe in den Art. 3 bis 6 DA.",
+      "Die Ausnahme ist allerdings enger gefasst, als der Begriff „KMU-Ausnahme“ vermuten lässt. Nach dem ausgewerteten Material lautet die zutreffende Ausgangsfrage nicht, ob eine Ausnahme greift, sondern welche Pflichten trotz einer möglichen Ausnahme bestehen bleiben."
     ],
 
     abschnitte: [
+      {
+        titel: "Ausnahme für Kleinst- und Kleinunternehmen (Art. 7 Abs. 1 UAbs. 1 DA)",
+        absaetze: [
+          "Kleinst- und Kleinunternehmen sind grundsätzlich von den Pflichten der Art. 3 bis 6 DA ausgenommen. Die Vorschrift stellt dabei allerdings nicht auf das Unternehmen selbst ab, sondern auf die Produkte und Dienste, die es herstellt oder erbringt. Die Kommentarliteratur kritisiert das ausdrücklich als unklar formuliert und folgert daraus, dass nicht nur das Kleinst- oder Kleinunternehmen selbst, sondern jeder Dateninhaber im Zusammenhang mit einem von ihm hergestellten Produkt oder erbrachten Dienst von den Pflichten zur Zugänglichmachung, Bereitstellung und Weitergabe befreit ist.",
+          "Von dieser Ausnahme bestehen zwei Rückausnahmen, die kumulativ vorliegen müssen. Sie entfällt, wenn das Unternehmen ein Partner- oder verbundenes Unternehmen hat, das selbst kein Kleinst- oder Kleinunternehmen ist, und wenn es zugleich als Unterauftragnehmer mit der Herstellung oder Konzeption eines vernetzten Produkts oder der Erbringung eines verbundenen Dienstes beauftragt wird. Hintergrund ist der Gedanke, dass der Auftraggeber in solchen Fällen in der Lage ist, den Auftragnehmer angemessen zu entschädigen.",
+          "Zu beachten bleibt zweierlei. Ein Kleinst- oder Kleinunternehmen kann als Dateninhaber den Pflichten des Data Act unterliegen, wenn es nicht selbst Hersteller des Produkts oder Erbringer des verbundenen Dienstes ist (ErwGr. 41 DA). Und die Informationspflichten des Vertragspartners des Nutzers nach Art. 3 Abs. 2, 3 DA bleiben von der Ausnahme unberührt, ein Hinweis auf den Wegfall des Zugriffsrechts wegen der Herstellung durch ein Kleinst- oder Kleinunternehmen ist also weiterhin zu erteilen."
+        ]
+      },
+      {
+        titel: "Übergangsregelung für mittlere Unternehmen (Art. 7 Abs. 1 UAbs. 2 DA)",
+        absaetze: [
+          "Mittlere Unternehmen profitieren von derselben Ausnahme, allerdings nur zeitlich begrenzt. Die Pflichten gelten nicht, wenn ein Unternehmen erst seit weniger als einem Jahr als mittleres Unternehmen eingestuft ist, und ebenso wenig für vernetzte Produkte, die ein mittleres Unternehmen erst seit weniger als einem Jahr auf dem Markt anbietet. Die Übergangsfrist soll die Anpassung an die neuen Anforderungen erleichtern.",
+          "Hier sind Auslegungsschwierigkeiten zu erwarten. Die zu den Kleinst- und Kleinunternehmen parallele Rückausnahme, also kein Partnerunternehmen außerhalb der Größenklasse und keine Beauftragung als Unterauftragnehmer, findet sich für mittlere Unternehmen nicht im Normtext, sondern nur in Erwägungsgrund 41. Erwägungsgründe dürfen nach ständiger Rechtsprechung des EuGH nicht herangezogen werden, um vom Wortlaut der Norm abzuweichen. Ob die Rückausnahme für mittlere Unternehmen rechtsverbindlich Anwendung finden kann, bleibt daher offen."
+        ]
+      },
       {
         titel: "Reichweite der Ausnahme",
         absaetze: [
@@ -317,43 +332,49 @@ const FRAGEN = [
       }
     ],
 
-    fazit: "Die Ausnahme des Art. 7 DA entlastet nur einen kleinen Kreis von Unternehmen und auch diesen nur teilweise. Sie greift ausschließlich unterhalb enger Schwellenwerte und ausschließlich für Kapitel II. Für die praktisch bedeutsamen Cloud-Switching-Pflichten besteht keine Entlastung. Kleinere Unternehmen sollten daher nicht davon ausgehen, vom Data Act weitgehend befreit zu sein.",
+    fazit: "Die Ausnahme des Art. 7 DA ist praktisch hoch relevant, weil sich sehr viele Unternehmen die Frage stellen. Sie entlastet jedoch nur einen engen Kreis und auch diesen nur teilweise. Sie gilt ausschließlich unterhalb der Schwellenwerte für Kleinst- und Kleinunternehmen und ausschließlich für Kapitel II; für die praktisch bedeutsamen Cloud-Switching-Pflichten besteht keine Entlastung. Hinzu kommen zwei kumulative Rückausnahmen sowie eine auf ein Jahr befristete Übergangsregelung für mittlere Unternehmen, deren Rückausnahme nur in Erwägungsgrund 41 steht. Kleinere Unternehmen sollten daher nicht davon ausgehen, vom Data Act weitgehend befreit zu sein.",
 
     empfehlungen: [
+      "Konzernstruktur fortlaufend prüfen: Nicht nur einmalig, sondern wiederkehrend kontrollieren, ob Partner- oder verbundene Unternehmen selbst die Kriterien für Kleinst- und Kleinunternehmen erfüllen.",
       "Schwellenwerte prüfen und dokumentieren: Beschäftigtenzahl sowie Jahresumsatz bzw. Bilanzsumme regelmäßig erfassen. Die Werte liegen mit 50 Beschäftigten und 10 Mio. EUR niedrig; ein Wachstumsschritt kann die Ausnahme entfallen lassen.",
+      "Informationspflicht trotz Ausnahme beachten: Auch wer sich auf die Ausnahme beruft, muss den Nutzer nach Art. 3 Abs. 2, 3 DA über den Wegfall des Zugriffsrechts informieren.",
+      "Übergangsfrist dokumentieren: Den Zeitpunkt der Einstufung als mittleres Unternehmen und den des Inverkehrbringens des jeweiligen Produkts festhalten, um die Jahresfrist zuverlässig berechnen zu können.",
+      "Rückausnahme bei mittleren Unternehmen vorsichtshalber anwenden: Da sie nur in Erwägungsgrund 41 steht, sollte im Zweifel konservativ von ihrer Geltung ausgegangen werden.",
       "Nicht auf die Ausnahme verlassen: Auch bei Greifen der Ausnahme bleiben sämtliche Pflichten außerhalb des Kapitels II bestehen, insbesondere die Cloud-Switching-Vorgaben der Art. 23 ff. DA.",
-      "Betroffenheit gesondert prüfen: Die Frage der Ausnahme ist von der Frage des Anwendungsbereichs zu trennen. Zunächst ist zu klären, ob überhaupt ein vernetztes Produkt oder verbundener Dienst vorliegt.",
       "Over-Compliance bewusst abwägen: Im Zweifel mehr zu tun als nötig bindet Ressourcen. Eine dokumentierte Einschätzung ist der pauschalen Erfüllung höherer Anforderungen vorzuziehen."
     ],
 
     literatur: [
-      "Daum, Andreas / Laude, Lennart: Europäische Digitalregulierung von KMUs und Start-ups – Regulierte Underdogs, MMR 2026, 301–307, insb. S. 305 f."
+      "Schemmel, in: Wolff/Brink/v. Ungern-Sternberg (Hrsg.), BeckOK Datenschutzrecht, 56. Edition, Stand: 1.2.2026, DA Art. 7 Rn. 4–14.",
+      "Daum, Andreas / Laude, Lennart: Europäische Digitalregulierung von KMUs und Start-ups – Regulierte Underdogs, MMR 2026, 301–307, insb. S. 305 f.",
+      "Europäische Kommission: FAQ Data Act, Version 1.4 vom 22. Januar 2026, abrufbar unter digital-strategy.ec.europa.eu."
     ],
 
     bewertungen: {
       haeufigkeit: {
-        score: 2,
-        text: "Die Frage wird in der ausgewerteten Literatur behandelt, aber nicht als eigenständiges Thema vertieft. Daum/Laude behandeln sie im Rahmen einer breiteren Betrachtung der Digitalregulierung für KMU. Eine eigenständige Auseinandersetzung allein mit Art. 7 DA ist im vorliegenden Material nicht enthalten."
+        score: 3,
+        text: "Die KMU-Ausnahme wird in der Kommentarliteratur zu Art. 7 DA bereits ausführlich behandelt, insbesondere in den laufenden Kommentierungen und über Verweise auf einschlägige Fachaufsätze. Auch in Beiträgen zu benachbarten Vorschriften, etwa zur Missbrauchskontrolle nach Art. 13 DA, wird die Norm am Rande mitbehandelt. Ein eigenständiger, ausschließlich dieser Frage gewidmeter Aufsatz liegt bislang jedoch nicht vor."
       },
       aufwand: {
         score: 2,
-        text: "Die Prüfung der Schwellenwerte erfordert das Erfassen und Dokumentieren von Beschäftigtenzahl sowie Umsatz oder Bilanzsumme. Ein Eingriff in technische Systeme oder Vertragswerke ist damit nicht verbunden. Nach der verankerten Skala liegt dies im Bereich einer Dokumentations- und Nachweispflicht."
+        spanne: "2 bis 3",
+        text: "Der Aufwand liegt vor allem in der fortlaufenden Prüfung der eigenen Unternehmensgröße sowie der Konzern- und Beteiligungsstruktur, weil sich die Einstufung durch Änderungen im Unternehmensverbund wandeln kann. Ein technischer Systemumbau ist damit nicht verbunden, wohl aber ein wiederkehrender Prüf- und Dokumentationsprozess, der über eine einmalige Feststellung bei Vertragsschluss hinausgeht."
       },
       streit: {
-        score: 1,
-        text: "In der ausgewerteten Literatur ist kein Positionenstreit zur Auslegung von Art. 7 DA erkennbar. Die Kritik von Daum/Laude richtet sich gegen die rechtspolitische Ausgestaltung der Ausnahme, nicht gegen ihre Auslegung. Die Schwellenwerte selbst sind im Wortlaut festgelegt."
+        score: 2,
+        text: "Ein etablierter Meinungsstreit mit klar benannten Gegenpositionen ist nicht erkennbar. Die Kommentarliteratur beschreibt die Norm zwar wiederholt als unklar formuliert und entwickelt dazu eigene Auslegungsvorschläge, zitiert dabei aber keine widersprechende Gegenmeinung. Es handelt sich eher um eine auslegungsbedürftige als um eine umstrittene Norm mit gefestigten Lagern. Die Kritik von Daum/Laude richtet sich gegen die rechtspolitische Ausgestaltung, nicht gegen die Auslegung."
       },
       unsicherheit: {
         score: 3,
-        text: "Der Anwendungsbereich der Ausnahme ist dem Wortlaut nach klar. Offen bleiben nach dem ausgewerteten Material jedoch Anschlussfragen: die genaue Berechnung der Schwellenwerte, das Verhältnis zur KMU-Empfehlung 2003/361/EG sowie die Behandlung eines Überschreitens während eines laufenden Vertragsverhältnisses. Auch die Auswirkungen des Digital Omnibus auf Art. 7 DA selbst sind aus dem Material nicht ersichtlich."
+        text: "Bereits die Grundregel zur Ausnahme für Kleinst- und Kleinunternehmen wird in der Literatur als unklar formuliert bezeichnet. Gravierender ist, dass die spiegelbildliche Rückausnahme für mittlere Unternehmen ausschließlich in Erwägungsgrund 41 und nicht im Normtext selbst verankert ist. Da Erwägungsgründe nach ständiger Rechtsprechung des EuGH nicht herangezogen werden dürfen, um vom Wortlaut abzuweichen, lässt dieses mutmaßliche Regelungsversehen Auslegungsschwierigkeiten erwarten. Offen bleiben daneben die genaue Berechnung der Schwellenwerte und das Verhältnis zur KMU-Empfehlung 2003/361/EG."
       },
       bussgeld: {
         score: 4,
-        text: "Es handelt sich um eine Schwellenfrage. Nach der Projektmethodik bemisst sich das Risiko nicht an der Frage selbst, sondern am Ausmaß der Folgepflichten bei einer Fehleinordnung. Wer sich zu Unrecht auf die Ausnahme beruft, erfüllt sämtliche Pflichten des Kapitels II nicht. Die Bandbreite der betroffenen Folgepflichten spricht für einen hohen Wert."
+        text: "Eine fälschliche Inanspruchnahme der Ausnahme führt zur Nichterfüllung sämtlicher Pflichten aus Art. 3 bis 6 DA. Nach der Projektmethodik bemisst sich das Risiko nicht an der Frage selbst, sondern am Ausmaß der Folgepflichten bei einer Fehleinordnung. Angesichts der großen Zahl betroffener Unternehmen und der Komplexität der Rückausnahmen wird es als hoch eingeschätzt."
       },
       haftung: {
         score: 3,
-        text: "Bei zu Unrecht angenommener Ausnahme könnten Nutzer Erfüllungsansprüche aus Art. 4, 5 DA geltend machen. Eine eigenständige, speziell auf die KMU-Ausnahme zugeschnittene Anspruchsgrundlage besteht nach dem ausgewerteten Material nicht. Das Haftungsrisiko fällt damit moderater aus als das Bußgeldrisiko."
+        text: "Nutzern, denen unter unzutreffender Berufung auf die Ausnahme der Zugang zu Daten verweigert wird, stehen grundsätzlich Erfüllungsansprüche aus Art. 4, 5 DA zu. Eine eigenständige, speziell auf die Ausnahme zugeschnittene Anspruchsgrundlage besteht nicht. Das Risiko ist moderater einzuschätzen als das Bußgeldrisiko, weil die zugrunde liegende Unternehmenseinstufung anhand objektiver Kriterien wie Beschäftigtenzahl und Umsatz für beide Seiten überprüfbar bleibt."
       }
     }
   },
@@ -430,10 +451,10 @@ const FRAGEN = [
     kategorie: "zugang",
     kurztitel: "Data Access by Design vs. Datenzugangsanspruch",
     frage: "Wie verhalten sich die Pflicht zu „Data Access by Design“ nach Art. 3 I DA und der eigenständige Datenzugangsanspruch des Nutzers nach Art. 4 I DA zueinander?",
-    normen: "Art. 3 I DA · Art. 4 I DA",
+    normen: "Art. 3 I DA · Art. 4 I DA · Art. 50 DA",
     einleitung: [
       "Art. 3 und Art. 4 DA zählen zu den praxisrelevantesten Normen des Data Act, werden aber, obwohl sie eine ähnliche Stoßrichtung verfolgen und von Anwendern teilweise sogar verwechselt werden, konzeptionell grundverschieden ausgestaltet. Art. 3 Abs. 1 DA verpflichtet den Hersteller vernetzter Produkte bzw. den Anbieter verbundener Dienste, seine Angebote nach dem Prinzip „Access-by-Design“ zu konzipieren, also die Produkt- und verbundenen Dienstdaten für den Nutzer direkt zugänglich zu machen; ein individueller Anspruch des Nutzers wird hierdurch nicht begründet. Art. 4 Abs. 1 DA hingegen gewährt dem Nutzer einen eigenständigen, einklagbaren Anspruch auf Bereitstellung der ohne Weiteres verfügbaren Daten gegen den Dateninhaber. Das genaue Verhältnis beider Normen zueinander ist im Verordnungstext nicht geklärt und wird in der Literatur intensiv diskutiert.",
-      "Art. 3 Abs. 1 DA gilt nur für vernetzte Produkte und verbundene Dienste, die nach dem 12. September 2026 in Verkehr gebracht werden. Als Beispiele für die direkte Zugänglichmachung nennen die Erwägungsgründe ein Nutzerkonto oder eine bereitgestellte mobile Anwendung (ErwG. 21 DA). Die genaue Reichweite der Pflicht bleibt jedoch unklar, insbesondere im Hinblick auf drei Fragen: Wie weit reicht die Einschränkung „soweit relevant und technisch durchführbar“? Können, müssen oder dürfen im Rahmen von Art. 3 Abs. 1 DA Datenschutzmaßnahmen ergriffen werden? Und inwiefern lässt sich der Schutz von Geschäftsgeheimnissen trotz der Pflicht zur direkten Zugänglichmachung gewährleisten?"
+      "Art. 3 Abs. 1 DA gilt nach Art. 50 DA nur für vernetzte Produkte und verbundene Dienste, die nach dem 12. September 2026 in Verkehr gebracht werden. Als Beispiele für die direkte Zugänglichmachung nennen die Erwägungsgründe ein Nutzerkonto oder eine bereitgestellte mobile Anwendung (ErwG. 21 DA). Die genaue Reichweite der Pflicht bleibt jedoch unklar, insbesondere im Hinblick auf drei Fragen: Wie weit reicht die Einschränkung „soweit relevant und technisch durchführbar“? Können, müssen oder dürfen im Rahmen von Art. 3 Abs. 1 DA Datenschutzmaßnahmen ergriffen werden? Und inwiefern lässt sich der Schutz von Geschäftsgeheimnissen trotz der Pflicht zur direkten Zugänglichmachung gewährleisten?"
     ],
     abschnitte: [
       {
@@ -460,13 +481,14 @@ const FRAGEN = [
         ]
       }
     ],
-    fazit: "Das Verhältnis von Art. 3 und Art. 4 DA ist gesetzlich nicht ausdrücklich geregelt und wird in der Literatur nicht einheitlich beurteilt. Zum aktuellen Zeitpunkt geht die überwiegende Literaturmeinung von einer Alternativität beider Normen aus, wobei der Hersteller über die Konzeption seines Produkts faktisch bestimmt, welcher Weg zur Anwendung kommt.",
+    fazit: "Art. 3 Abs. 1 und Art. 4 Abs. 1 DA verfolgen ein vergleichbares Ziel, regeln aber unterschiedliche Zugangsmechanismen. Wie sie zueinander stehen, ist gesetzlich nicht ausdrücklich geregelt und bislang nicht abschließend geklärt; in der Literatur werden mindestens die drei dargestellten Auslegungsmöglichkeiten diskutiert. Für die Alternativität sprechen die FAQ der Kommission sowie die Schutzmechanismen des Art. 4 Abs. 6 bis 9 DA, für die der direkte Zugang nach Art. 3 Abs. 1 DA keine ausdrückliche Entsprechung kennt. Entschieden ist die Frage damit nicht. Praktisch bestimmt der Hersteller über die Konzeption seines Produkts, welcher Weg zur Anwendung kommt.",
     empfehlungen: [
+      "Zugangsweg je Produkt festlegen: Nach der Alternativitätslösung kann es grundsätzlich genügen, einen der beiden Wege umzusetzen. Für jedes vernetzte Produkt und jeden verbundenen Dienst sollte daher festgelegt werden, ob der Zugang unmittelbar technisch ermöglicht oder ein Verfahren zur Bereitstellung auf Verlangen eingerichtet wird.",
       "Konzeptionsentscheidung dokumentieren: Hersteller sollten festhalten, ob und warum ein direkter Zugang „relevant und technisch durchführbar“ ist bzw. warum nicht – als Nachweis für die eigene Ermessensausübung.",
       "Rollenverteilung klären: Prüfen, ob das eigene Unternehmen als Hersteller, Dateninhaber oder beides auftritt, da sich die Pflichten je nach Fallgruppe unterscheiden.",
       "Vertragliche Absicherung in der Lieferkette: Dateninhaber, die nicht selbst Hersteller sind, sollten den vom Hersteller gewählten Zugangsweg vertraglich festlegen oder zumindest abfragen.",
-      "Umsetzungsfristen im Blick behalten: Art. 4 DA gilt bereits seit dem 12.09.2025, Art. 3 Abs. 1 DA erst für ab dem 12.09.2026 in Verkehr gebrachte Produkte.",
-      "Geschäftsgeheimnis- und Datenschutzfragen frühzeitig einbeziehen: Unabhängig vom gewählten Weg sollten Schutzmaßnahmen nach Art. 4 Abs. 6-9 DA von Anfang an mitgedacht werden.",
+      "Umsetzungsfristen im Blick behalten: Art. 4 DA gilt bereits seit dem 12.09.2025, Art. 3 Abs. 1 DA nach Art. 50 DA erst für ab dem 12.09.2026 in Verkehr gebrachte Produkte.",
+      "Geschäftsgeheimnis- und Datenschutzfragen frühzeitig einbeziehen: Unabhängig vom gewählten Weg sollten Schutzmaßnahmen nach Art. 4 Abs. 6-9 DA von Anfang an mitgedacht werden. Bei der Bereitstellung auf Verlangen gehören klare Anfrageprozesse dazu.",
       "Rechtsprechungs- und Literaturentwicklung beobachten: Da auch die genaue Reichweite von „soweit relevant und technisch durchführbar“ ungeklärt ist, sollte die weitere Diskussion verfolgt werden."
     ],
     literatur: [

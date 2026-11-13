@@ -67,7 +67,14 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
 .ladefehler-detail{font-size:12px;color:var(--tinte-weich);margin-top:9px;font-family:"SF Mono",Menlo,Consolas,monospace}
 .ladefehler code{font-family:"SF Mono",Menlo,Consolas,monospace;background:#E4E4E8;padding:1px 5px;border-radius:2px;font-size:12.5px}
 
-.matrix-huelle{overflow-x:auto;margin-top:32px;padding-bottom:8px}
+.matrix-kopf{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:44px;flex-wrap:wrap;margin-top:28px;
+}
+.matrix-kopf .arbeitsstand{margin:0}
+.matrix-kopf .legende-block{align-items:flex-end;text-align:right}
+.matrix-kopf .skala-text{margin-left:0;max-width:54ch}
+.matrix-huelle{overflow-x:auto;margin-top:18px;padding-bottom:8px}
 .matrix{display:grid;min-width:1080px;gap:3px}
 
 .ecke{background:transparent}
@@ -136,10 +143,6 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
 .st-0{background:var(--s0)}
 
 /* ---------- Legende ---------- */
-.legende{
-  margin-top:34px;padding-top:22px;border-top:1px solid var(--linie);
-  display:flex;gap:52px;flex-wrap:wrap;
-}
 .legende-block{display:flex;flex-direction:column;gap:10px}
 .legende-titel{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--tinte-weich)}
 .skala{display:flex;align-items:center;gap:2px}
@@ -269,7 +272,14 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
   <p class="einleitung-lead">Stellen Sie sich vor, Sie könnten für Ihr Unternehmen auf einen Blick sehen, welche Rechtsfragen des Data Act besonders umstritten, unsicher oder risikoreich sind.</p>
   <p class="einleitung-text">Diese Heat Map macht genau das möglich: Sie ordnet die zentralen Rechtsfragen des Data Act sechs wissenschaftlich hergeleiteten Kriterien zu und macht damit sichtbar, wo Klärungsbedarf, Risiko oder Forschungslücken bestehen und wie hoch der Implementierungsaufwand für Dateninhaber ausfällt. Klicken Sie sich durch Themen, Kriterien und Einzelbewertungen, um von der groben Orientierung bis zur Detailanalyse mit Handlungsempfehlung zu gelangen.</p>
   <hr class="kopf-linie">
-  <p class="arbeitsstand" id="arbeitsstand"></p>
+  <div class="matrix-kopf">
+    <p class="arbeitsstand" id="arbeitsstand"></p>
+    <div class="legende-block">
+      <span class="legende-titel">Skala</span>
+      <div class="skala" id="skala"></div>
+      <span class="skala-text">Ordinal, 1–5. Einheitlich sequenziell eingefärbt – ein hoher Wert bedeutet je nach Kriterium etwas anderes, nicht durchgehend „kritisch“.</span>
+    </div>
+  </div>
 
   <div id="ladefehler" class="ladefehler" hidden>
     <p class="ladefehler-titel">Die Matrix konnte nicht geladen werden.</p>
@@ -280,14 +290,6 @@ h1{font-size:32px;font-weight:700;color:var(--dap);letter-spacing:-.018em;line-h
   <div class="matrix-huelle">
     <div class="matrix" id="matrix"></div>
   </div>
-
-  <section class="legende">
-    <div class="legende-block">
-      <span class="legende-titel">Skala</span>
-      <div class="skala" id="skala"></div>
-      <span class="skala-text">Ordinal, 1–5. Einheitlich sequenziell eingefärbt – ein hoher Wert bedeutet je nach Kriterium etwas anderes, nicht durchgehend „kritisch“.</span>
-    </div>
-  </section>
 
   <section class="abschluss">
     <p class="abschluss-text" id="abschluss"></p>
